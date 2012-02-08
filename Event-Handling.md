@@ -79,7 +79,7 @@ There are two common ways of sending an event. You can _bubble_ an event up, or 
 
 `bubble` sends the event up the object chain. `waterfall` sends the event down through the object tree.
 
-`inEventName` is the event name. 
+`inEventName` is the event name (including the _on_ prefix). 
 
 `inEvent` is an optional object containing event specified information (this is the same object listeners receive as `inEvent` although it may be decorated, e.g. with the `origin` property). 
 
