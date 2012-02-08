@@ -7,7 +7,7 @@ Enyo uses a message passing strategy for indirect communication between Componen
 An event handler in Enyo looks like this:
 
 	myEventHandler: function(inSender, inEvent) {
-		// return true; // return true to indicate this event was handled and propagation should stop
+		// can return true to indicate this event was handled and propagation should stop
 	}
 
 `inSender` is the enyo.Component that passed the event to `this`. 
