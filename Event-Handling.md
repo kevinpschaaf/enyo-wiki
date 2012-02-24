@@ -20,7 +20,7 @@ The handler can return a truthy value to stop propagating the event.
 
 **Note:** `inEvent.stopPropagation()` will not prevent propagation on events in Enyo, return true from the handler instead.
 
-Because events can travel, the sender of an event is different from the originator of an event. The originator of an event is available as `inEvent.origin`.
+Because events can travel, the sender of an event is different from the originator of an event. The originator of an event is available as `inEvent.originator`.
 
 For example, when clicked, a button originates an _onclick_ which bubbles up the control chain. The button's parent my bubble the event up to the button's grandparent. From the grandparent's perspective, the origin is the button and the sender is the button's parent.
 
