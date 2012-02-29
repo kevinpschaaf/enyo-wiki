@@ -45,18 +45,3 @@ ui
 In preparation for our new Onyx UI widget set, we've been reimplementing a 
 lot of the base user interface behavior and bindings associated with widgets 
 into a new folder called "ui".
-
-The new classes are:
-
-* enyo.BaseLayout - derived from enyo.Layout, a layout kind using the enyo-fit style
-* enyo.Input - a wrapper around the `<input>` tag
-  * enyo.Checkbox - specialization for checkbox inputs
-* enyo.DragAvatar - ???? used for drag and drop ????
-* enyo.Group - a container that holds GroupItems
-* enyo.GroupItem - a item that can be grouped
-  * enyo.ToolDecorator - a group item that can be part of a toolbar
-    * enyo.Button - a wrapper for the `<button>` tag
-* enyo.Image - a wrapper around the `<img>` tag
-* enyo.Repeater - a control for making lists of other controls
-* enyo.Select - a wrapper for the `<select>` tag
-* enyo.Selection - a component for managing the selected item in a lis
