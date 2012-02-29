@@ -1,4 +1,4 @@
-> New for Enyo 2.0.1+
+> New for Enyo 2.0b2+
 
 Enyo uses a message passing strategy for indirect communication between Components. We use the term _event_ for messages because it dovetails with common DOM usage. When using the _dom_ package in Enyo (default in core), DOM events and custom events are unified.
 
