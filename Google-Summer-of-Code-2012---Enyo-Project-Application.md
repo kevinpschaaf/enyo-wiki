@@ -26,7 +26,7 @@ Enyo is released under the Apache License 2.0.
 \#enyojs on irc.freenode.net
 
 ### Does your organization have an application template you would like to see students use? If so, please provide it now.
-[Google Summer of Code 2012 - Student Application ](https://github.com/enyojs/internal/wiki/Google-Summer-of-Code-2012---Student-Application)
+[Google Summer of Code 2012 - Student Application ](Google-Summer-of-Code-2012---Student-Application)
 
 ### Who will be your backup organization administrator?
 Gray Norton
