@@ -29,8 +29,8 @@ Enyo is released under the Apache License 2.0.
 [Google Summer of Code 2012 - Student Application ](Google-Summer-of-Code-2012---Student-Application)
 
 ### Who will be your backup organization administrator?
-Primary: Kevin Schaaf
-Backup: Gray Norton
+* Primary: Kevin Schaaf
+* Backup: Gray Norton
 
 ### What criteria did you use to select your mentors for this year's program? Please be as specific as possible.
 Our two main criteria for selecting mentors were having a command of their domain and a personal desire to mentor junior engineers.  The engineers we chose are experienced, professional engineers who work full-time on the Enyo project as HP employees.   Last year these mentors had a great experience taking on a student intern (not associated with GSOC), quickly guiding him to the deep end of the pool as a bona-fide member of the team working in an area that excited him.  We expect a similar productive experience for our 2012 GSoC students.
