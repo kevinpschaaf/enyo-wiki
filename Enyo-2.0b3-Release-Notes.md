@@ -15,10 +15,10 @@ Other changes include:
   in the output directly.
 * `enyo.job` has been moved into the core code from the extra library
 * new control __enyo.TextArea__ that's a UI control based on enyo.Input, but wraps the `<textarea>` HTML element instead.
-* new control __enyo.RichText__ that's is a multiline text input control supporting HTML formatting
+* new control __enyo.RichText__ that's a multiline text input control supporting HTML formatting
 * `enyo.Input` now supports a `type` property that's mapped to the HTML 5 type attribute
 * unified platform detection code to better handle differences among desktop, iOS, Android, and webOS targets.
-* bug fix to allow using "foo-package.js" files from a `<script>` tag; before only "package.js" 
+* bug fix to allow using prefixed package files (e.g. "foo-package.js") from a `<script>` tag; before only "package.js" 
   with no prefix was allowed
 * the synthesized `flick` event now has coordinates of the start of the flick, not the end
 * new 'holdpulse' event sent periodically when a touch or click is held on an element to allow triggering
@@ -29,8 +29,7 @@ Other changes include:
 * `enyo.Scroller`: changed horizontal/vertical settings so they make more sense, window scrolling is now
   prevented on iOS when using a native touch region scroller and dragging beyond a scroll boundary. 
 * The `enyo.Scroller.scrollTo()` method now animates when using a TouchScrollStrategy.
-* `enyo.macroize` was optimized and a sister method, `enyo.quickMacroize()` was added that's faster at the code
-  of being more limited.
+* `enyo.macroize` was optimized and a sister method, `enyo.quickMacroize()` was added that's faster but more limited.
 
 Onyx
 ----
@@ -47,7 +46,7 @@ Also changed in Onyx:
 
 * More onyx.PopUp samples to the OnyxSampler sample application.
 * Events capturing is released when an `onyx.Popup` is destroyed
-* animations are stopped with `onyx.Animator` is destroyed
+* animations are stopped when `onyx.Animator` is destroyed
 * `onyx.Icon` uses `enyo.path.rewrite` to rewrite the src value so you can use aliases
 * Slideable: add onChange event.
 
