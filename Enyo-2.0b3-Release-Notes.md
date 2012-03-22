@@ -44,7 +44,7 @@ For Onyx, there are several new controls:
 
 Also changed in Onyx:
 
-* More onyx.PopUp samples to the OnyxSampler sample application.
+* More onyx.Popup samples to the OnyxSampler sample application.
 * Events capturing is released when an `onyx.Popup` is destroyed
 * animations are stopped when `onyx.Animator` is destroyed
 * `onyx.Icon` uses `enyo.path.rewrite` to rewrite the src value so you can use aliases
