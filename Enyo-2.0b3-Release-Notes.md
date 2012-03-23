@@ -8,7 +8,7 @@ For Enyo, one big change is the reintroduction of "allowHtml" into enyo.Control.
 
 Other changes include:
 
-* new method `enyo.now()` returns a Date object with the current time
+* new method `enyo.now()` returns the current time
 * `enyo.Component.createComponents` now returns an array of the created items
 * `enyo.Control` now has a `noDom` attribute that can be set to true to avoid having it 
   create a DOM node. This is useful for containers that hold other controls, but shouldn't be represented 
