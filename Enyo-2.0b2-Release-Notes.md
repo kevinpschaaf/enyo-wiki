@@ -13,6 +13,7 @@ by the event handler system and to require the event handler prototype (inSender
 inEvent).  Before, we allowed events to be thrown with a random argument list.
 
 enyo.Control: 
+
 * add get/setNodeProperty method for accessing properties of a Control's DOM node
 * attributes are now handles like style and classes, allowing ones declared in the
   kind to be combined with the ones in the instance
