@@ -34,7 +34,7 @@ Event handlers for DOM events are no longer implicitly named as "handleEventName
 are mapped through a handlers object, mapping event strings to handler methods.
 
 Events now will bubble from children to parents and back down the system.  See 
-[Event Handling][https://github.com/enyojs/enyo/wiki/Event-Handling] for details.
+[Event Handling](https://github.com/enyojs/enyo/wiki/Event-Handling) for details.
 
 touch
 -----
