@@ -1,8 +1,8 @@
-Welcome to the Enyo wiki!
+Welcome to the Enyo wiki! Noteworthy pages:
 
-Noteworthy pages:
+[[Enyo Release Notes]]
 
 [[Event Handling]]
 
-[[Enyo Release Notes]]
+[[Object Lifecycle]]
 
