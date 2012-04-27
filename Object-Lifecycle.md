@@ -35,7 +35,7 @@ It's possible to base a kind on another kind. The new kind inherits all the prop
 	  }
 	});
 
-_MyNextKind_ starts with all the properties and methods of _myKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. _MyNextKind_ can decide what things to do before or after calling the old constructor, or can choose to not call it at all.
+_MyNextKind_ starts with all the properties and methods of _MyKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. _MyNextKind_ can decide what things to do before or after calling the old constructor, or can choose to not call it at all.
 
 This override system is the same for any method, not just for constructor.
 
