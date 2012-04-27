@@ -11,7 +11,7 @@ Remember that Enyo _kinds_ use regular JavaScript prototypes. A trivial kind has
 	  }
 	});
 
-That's it. Now `MyKind` is a function that you can use with the `new` operator to create instances. The `myKind` function is a copy of a boilerplate function that will call your (optional) `constructor` function.
+That's it. Now `MyKind` is a function that you can use with the `new` operator to create instances. The `MyKind` function is a copy of a boilerplate function that will call your (optional) `constructor` function.
 
 	myInstance = new MyKind();
 
