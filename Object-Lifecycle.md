@@ -45,6 +45,8 @@ This override system is the same for any method, not just for constructor.
 
 > The _this.inherited_ syntax is shorter and removes the need for the super-kind name (_myKind_ in this example).
 
+> Also note that `arguments` is a [JavaScript built-in](https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments), whose value is a pseudo-array of the arguments passed to the currently executing function.
+
 ### Component: create() and destroy()
 
 All kinds can have constructor methods as described above. The _Component_ kind adds new lifecycle methods, most importantly: `create()` and `destroy()`.
