@@ -52,7 +52,7 @@ All kinds can have constructor methods as described above. The _Component_ kind 
 	var myComponent = enyo.kind({
 	  kind: enyo.Component,
 	  constructor: function() {
-		// create components and other create-time tasks
+                // low-level or esoteric initialization tasks, usually not needed
 		this.inherited(arguments);
 	  },
 	  create: function() {
