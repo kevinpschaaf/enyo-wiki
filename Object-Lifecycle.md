@@ -23,19 +23,19 @@ Like all JavaScript objects, a kind-instance is garbage collected when there are
 
 It's possible to base a kind on another kind. The new kind inherits all the properties and methods of the old kind. If you override an old method, you can call it with `inherited()`.
 
-	var myNextKind = enyo.kind({
-	  kind: myKind,
+	var MyNextKind = enyo.kind({
+	  kind: MyKind,
 	  constructor: function() {
-		// do any initialization tasks before myKind initializes
+		// do any initialization tasks before MyKind initializes
 		//
 		// do inherited initialization (optional, but usually a good idea)
 		this.inherited(arguments);
 		//
-		// do any initialization tasks after myKind initializes
+		// do any initialization tasks after MyKind initializes
 	  }
 	});
 
-_myNextKind_ starts with all the properties and methods of _myKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. myNewKind can decide what things to do before or after calling the old constructor, or can choose to not call it at all.
+_MyNextKind_ starts with all the properties and methods of _myKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. _MyNextKind_ can decide what things to do before or after calling the old constructor, or can choose to not call it at all.
 
 This override system is the same for any method, not just for constructor.
 
