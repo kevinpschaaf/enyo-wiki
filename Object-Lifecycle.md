@@ -4,14 +4,18 @@
 
 Remember that Enyo _kinds_ use regular JavaScript prototypes. A trivial kind has a simple life-cycle.
 
-	var myKind = enyo.kind({
+	var MyKind = enyo.kind({
 	  kind: null, // otherwise it will default to 'Control'
 	  constructor: function() {
 		// do any initialization tasks
 	  }
 	});
 
-That's it. The kind has an (optional) constructor function that is called when an instance is created. Like all JavaScript objects, a kind-instance is garbage collected when there are no references to it.
+That's it. Now `MyKind` is a function that you can use with the `new` operator to create instances. The `myKind` function is a copy of a boilerplate function that will call your (optional) `constructor` function.
+
+	myInstance = new MyKind();
+
+Like all JavaScript objects, a kind-instance is garbage collected when there are no references to it. 
 
 > The advanced features of Component and Control come from those kinds, `enyo.kind()` itself is fairly simple.
 
@@ -31,15 +35,15 @@ It's possible to base a kind on another kind. The new kind inherits all the prop
 	  }
 	});
 
-_myNextKind_ starts with all the properties and methods of _myKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. myNewKind can decide what things to do before or after calling the old constructor, or may not call it at all.
+_myNextKind_ starts with all the properties and methods of _myKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. myNewKind can decide what things to do before or after calling the old constructor, or can choose to not call it at all.
 
-This overriding system is the same for any methods, not just for constructor.
+This override system is the same for any method, not just for constructor.
 
-> Using only raw JavaScript, you could call the inherited method like so
+> Using only raw JavaScript, you could call an inherited method like so
 
->		myKind.prototype.constructor.apply(this, arguments);
+>		myKind.prototype.<method name>.apply(this, arguments);
 
-> The _this.inherited_ syntax is shorter and removes the need for the super-kind name (_myKind_).
+> The _this.inherited_ syntax is shorter and removes the need for the super-kind name (_myKind_ in this example).
 
 ### Component: create() and destroy()
 
@@ -178,4 +182,3 @@ one can write
 		name: "foo.kinds.MyKind",
 		...
 	});
-
