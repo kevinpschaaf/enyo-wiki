@@ -1,3 +1,4 @@
+
 ## Lifecycle Methods in Enyo
 
 ### Trivial Kind
@@ -5,10 +6,10 @@
 Remember that Enyo _kinds_ use regular JavaScript prototypes. A trivial kind has a simple life-cycle.
 
 	var MyKind = enyo.kind({
-	  kind: null, // otherwise it will default to 'Control'
-	  constructor: function() {
-		// do any initialization tasks
-	  }
+		kind: null, // otherwise it will default to 'Control'
+		constructor: function() {
+			// do any initialization tasks
+		}
 	});
 
 That's it. Now `MyKind` is a function that you can use with the `new` operator to create instances. The `MyKind` function is a copy of a boilerplate function that will call your (optional) `constructor` function.
@@ -24,15 +25,15 @@ Like all JavaScript objects, a kind-instance is garbage collected when there are
 It's possible to base a kind on another kind. The new kind inherits all the properties and methods of the old kind. If you override an old method, you can call it with `inherited()`.
 
 	var MyNextKind = enyo.kind({
-	  kind: MyKind,
-	  constructor: function() {
-		// do any initialization tasks before MyKind initializes
-		//
-		// do inherited initialization (optional, but usually a good idea)
-		this.inherited(arguments);
-		//
-		// do any initialization tasks after MyKind initializes
-	  }
+		kind: MyKind,
+		constructor: function() {
+			// do any initialization tasks before MyKind initializes
+			//
+			// do inherited initialization (optional, but usually a good idea)
+			this.inherited(arguments);
+			//
+			// do any initialization tasks after MyKind initializes
+		}
 	});
 
 _MyNextKind_ starts with all the properties and methods of _MyKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. _MyNextKind_ can decide what things to do before or after calling the old constructor, or can choose to not call it at all.
@@ -52,20 +53,20 @@ This override system is the same for any method, not just for constructor.
 All kinds can have constructor methods as described above. The _Component_ kind adds new lifecycle methods, most importantly: `create()` and `destroy()`.
 
 	var myComponent = enyo.kind({
-	  kind: enyo.Component,
-	  constructor: function() {
-		// low-level or esoteric initialization, usually not needed at all
-		this.inherited(arguments);
-	  },
-	  create: function() {
-		// create is called *after* the constructor chain is finished
-		this.inherited(arguments);
-		// this.$ hash available only *after* calling inherited create
-	  },
-	  destroy: function() {
-		// do inherited teardown
-		this.inherited(arguments);
-	  }
+		kind: enyo.Component,
+		constructor: function() {
+			// low-level or esoteric initialization, usually not needed at all
+			this.inherited(arguments);
+		},
+		create: function() {
+			// create is called *after* the constructor chain is finished
+			this.inherited(arguments);
+			// this.$ hash available only *after* calling inherited create
+		},
+		destroy: function() {
+			// do inherited teardown
+			this.inherited(arguments);
+		}
 	});
 
 Technically, `create()` differs from `constructor()` in that the `constructor` call finishes completely (including any chain of inherited calls) before `create()` is called, but normal initialization can be done in either method. 
@@ -74,24 +75,24 @@ For convenience, most Components can simply ignore `constructor()` and rely on `
 
 The other important feature of `create()` is that the `this.$` hash is ready after `Component.create()` has executed. That means that an override of create is where you generally put initialization of owned Components. For example:
 
-	  components: [
-         {kind: "MyWorker"}
-      ],
-	  create: function() {
+	components: [
+		{kind: "MyWorker"}
+	],
+	create: function() {
 		this.inherited(arguments);
-        // put MyWorker to work
-        this.$.myWorker.work();
-	  }
+		// put MyWorker to work
+		this.$.myWorker.work();
+	}
 
 Components frequently reference other components. In the example above, the `myWorker` instance is referenced by `this.$.myWorker`. The `destroy()` method cleans up these references and allows a Component to be garbage collected.  Component kinds also put general cleanup code in `destroy()`.
 
-	  destroy: function() {
-        // stop MyWorker from working
-        this.$.myWorker.stop();
-        // standard cleanup
+	destroy: function() {
+		// stop MyWorker from working
+		this.$.myWorker.stop();
+		// standard cleanup
 		this.inherited(arguments);
-        // this.$ hash is empty now
-	  }
+		// this.$ hash is empty now
+	}
 
 > If you've made a custom reference to a Component that is not cleaned up by a `destroy()` method, then calling `destroy()` will not actually make that object subject to garbage collection. For this reason there is a `this.destroyed` flag on each Component. If `this.destroyed` is true, the Component has been uninitialized and the reference should be removed.
 
@@ -110,10 +111,10 @@ There are certain things you cannot do unless DOM has been created. Obviously, y
 In a Control, if you need to do something right away after DOM is created, you can do that in the `rendered()` method:
 
 	rendered: function() {
-        // important! must call the inherited method
+		// important! must call the inherited method
 		this.inherited(arguments);	
-        // this is the first moment bounds are available
-        this.firstBounds = this.getBounds();
+		// this is the first moment bounds are available
+		this.firstBounds = this.getBounds();
 	}
 
 
@@ -121,11 +122,11 @@ Another important note here is that even though DOM elements have been created w
 
 Whever you need to access a Control's DomNode directly, use the `hasNode()` method like this:
 
-    twiddle: function() {
+	twiddle: function() {
 		if (this.hasNode()) {
 			buffNode(this.node); // buffNode is made-up
 		}
-    }
+	}
 
 > Remember that even if DOM is rendered, `this.node` may not have a value. A truthy result from `hasNode()` means `this.node` is initialized. Even in `rendered()`, you need to call `hasNode()` first.
 
@@ -134,7 +135,7 @@ Whever you need to access a Control's DomNode directly, use the `hasNode()` meth
 			if (this.hasNode()) {
 				buffNode(this.node);
 			}
-		});	
+		});
 
 ### When are Controls Rendered?
 
