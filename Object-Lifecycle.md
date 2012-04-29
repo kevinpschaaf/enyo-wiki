@@ -1,4 +1,3 @@
-
 ## Lifecycle Methods in Enyo
 
 ### Trivial Kind
@@ -139,7 +138,7 @@ Whever you need to access a Control's DomNode directly, use the `hasNode()` meth
 
 ### When are Controls Rendered?
 
-In general, Controls are not rendered until you you explicitly say so. Most applications have a `renderedInto()` or `write()` method at the very top that renders the Controls in the application.
+In general, Controls are not rendered until you you explicitly say so. Most applications have a `renderInto()` or `write()` method at the very top that renders the Controls in the application.
 
 Also, when creating Controls dynamically, Enyo will not render them until you call `render()` on those Controls, or one of their containers. This kind of code is common:
 
