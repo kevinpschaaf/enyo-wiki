@@ -4,13 +4,14 @@
 
 Remember that Enyo _kinds_ use regular JavaScript prototypes. A trivial kind has a simple life-cycle.
 
+```javascript
 	var MyKind = enyo.kind({
 		kind: null, // otherwise it will default to 'Control'
 		constructor: function() {
 			// do any initialization tasks
 		}
 	});
-
+```
 That's it. Now `MyKind` is a function that you can use with the `new` operator to create instances. The `MyKind` function is a copy of a boilerplate function that will call your (optional) `constructor` function.
 
 	myInstance = new MyKind();
