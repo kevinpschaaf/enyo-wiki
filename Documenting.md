@@ -7,6 +7,7 @@ To enable the viewer to show documentation, a certain format must be followed.
 ## What is documented
 
 The API Viewer looks at all publicly visible kinds, functions, and properties, and displays them with their documentation comments.
+
 In addition, the ancestry of kinds is also shown, including inherited methods, and properties.
 
 ## Markdown
@@ -19,13 +20,13 @@ To enable the document viewer to use a Markdown formatted comment as documentati
 
 - Single Line Comment
 
-	//* This is an Enyo Documentation comment in _Markdown_
+		//* This is an Enyo Documentation comment in _Markdown_
 
 - Multiline Comment
 
-	/**
-		This is an Enyo Documentation comment in _Markdown_
-	*/
+		/**
+			This is an Enyo Documentation comment in _Markdown_
+		*/
 
 ## Visibility
 
