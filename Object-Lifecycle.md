@@ -1,28 +1,36 @@
+# Object Lifecycle
+
 ## Lifecycle Methods in Enyo
 
-### Trivial Kind
+### A Trivial Kind
 
-Remember that Enyo _kinds_ use regular JavaScript prototypes. A trivial kind has a simple life-cycle.
+Remember that Enyo kinds use regular JavaScript prototypes. A trivial kind has a
+simple lifecycle:
 
-```javascript
 	var MyKind = enyo.kind({
 		kind: null, // otherwise it will default to 'Control'
 		constructor: function() {
 			// do any initialization tasks
 		}
 	});
-```
-That's it. Now `MyKind` is a function that you can use with the `new` operator to create instances. The `MyKind` function is a copy of a boilerplate function that will call your (optional) `constructor` function.
+
+That's it.  Now `MyKind` is a function that you can use with the `new` operator
+to create instances.  The `MyKind` function is a copy of a boilerplate function
+that will call your (optional) `constructor` function.
 
 	myInstance = new MyKind();
 
-Like all JavaScript objects, a kind-instance is garbage collected when there are no references to it. 
+Like all JavaScript objects, a kind instance is garbage-collected when there are
+no references to it. 
 
-> The advanced features of Component and Control come from those kinds, `enyo.kind()` itself is fairly simple.
+**Note:** While the `Component` and `Control` kinds have some advanced features,
+`enyo.kind()` itself is fairly simple.
 
-### Overrides: inherited()
+### Inheritance: this.inherited()
 
-It's possible to base a kind on another kind. The new kind inherits all the properties and methods of the old kind. If you override an old method, you can call it with `inherited()`.
+It's possible to base a kind on another kind.  The new kind inherits all the
+properties and methods of the old kind.  If you override a method from the old
+kind, you can call the overridden method using `inherited()`:
 
 	var MyNextKind = enyo.kind({
 		kind: MyKind,
@@ -36,21 +44,30 @@ It's possible to base a kind on another kind. The new kind inherits all the prop
 		}
 	});
 
-_MyNextKind_ starts with all the properties and methods of _MyKind_, but then we override `constructor()`. Our new constructor can call the old constructor using the `this.inherited(arguments)` syntax. _MyNextKind_ can decide what things to do before or after calling the old constructor, or can choose to not call it at all.
+`MyNextKind` starts with all the properties and methods of `MyKind`, but then we
+override `constructor()`.  Our new constructor can call the old constructor
+using the `this.inherited(arguments)` syntax.  `MyNextKind` can decide what
+things to do before or after calling the old constructor, or can choose to not
+call the old constructor at all.
 
-This override system is the same for any method, not just for constructor.
+This override system is the same for any method, not just for `constructor`.
 
-> Using only raw JavaScript, you could call an inherited method like so
+Note that you could call an inherited method using only raw JavaScript, like so:
 
->		myKind.prototype.<method name>.apply(this, arguments);
+	myKind.prototype.<method name>.apply(this, arguments);
 
-> The _this.inherited_ syntax is shorter and removes the need for the super-kind name (_myKind_ in this example).
+The `this.inherited` syntax is shorter and removes the need to specify the
+superkind's name (in this case, `myKind`).
 
-> Also note that `arguments` is a [JavaScript built-in](https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments), whose value is a pseudo-array of the arguments passed to the currently executing function.
+Also note that `arguments` is a
+[JavaScript built-in](https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments)
+whose value is a pseudo-array of the arguments passed to the currently executing
+function.
 
-### Component: create() and destroy()
+### Components: create() and destroy()
 
-All kinds can have constructor methods as described above. The _Component_ kind adds new lifecycle methods, most importantly: `create()` and `destroy()`.
+All kinds may have constructor methods as described above.  The `Component` kind
+adds several new lifecycle methods, most notably `create()` and `destroy()`:
 
 	var myComponent = enyo.kind({
 		kind: enyo.Component,
@@ -69,11 +86,17 @@ All kinds can have constructor methods as described above. The _Component_ kind 
 		}
 	});
 
-Technically, `create()` differs from `constructor()` in that the `constructor` call finishes completely (including any chain of inherited calls) before `create()` is called, but normal initialization can be done in either method. 
+Technically, `create()` differs from `constructor()` in that the `constructor`
+call finishes completely (including any chain of inherited calls) before
+`create()` is called, but normal initialization can be done in either method. 
 
-For convenience, most Components can simply ignore `constructor()` and rely on `create()`.
+For convenience, most components can simply ignore `constructor()` and rely on
+`create()`.
 
-The other important feature of `create()` is that the `this.$` hash is ready after `Component.create()` has executed. That means that an override of create is where you generally put initialization of owned Components. For example:
+The other important feature of `create()` is that the `this.$` hash is ready
+after `Component.create()` has executed.  This means that an override of
+`create` is generally where you do initialization tasks for owned Components.
+For example:
 
 	components: [
 		{kind: "MyWorker"}
@@ -84,7 +107,9 @@ The other important feature of `create()` is that the `this.$` hash is ready aft
 		this.$.myWorker.work();
 	}
 
-Components frequently reference other components. In the example above, the `myWorker` instance is referenced by `this.$.myWorker`. The `destroy()` method cleans up these references and allows a Component to be garbage collected.  Component kinds also put general cleanup code in `destroy()`.
+Components frequently reference other components.  In the example above, the
+`MyWorker` instance is referenced by `this.$.myWorker`.  The `destroy()` method
+cleans up these references and allows component to be garbage-collected.  Component kinds also put general cleanup code in `destroy()`.
 
 	destroy: function() {
 		// stop MyWorker from working
@@ -94,21 +119,35 @@ Components frequently reference other components. In the example above, the `myW
 		// this.$ hash is empty now
 	}
 
-> If you've made a custom reference to a Component that is not cleaned up by a `destroy()` method, then calling `destroy()` will not actually make that object subject to garbage collection. For this reason there is a `this.destroyed` flag on each Component. If `this.destroyed` is true, the Component has been uninitialized and the reference should be removed.
+**Note:** If you've made a custom reference to a component that is not cleaned
+up by a `destroy()` method, then calling `destroy()` will not actually make that
+object subject to garbage collection.  For this reason, there is a
+`this.destroyed` flag on each component.  If `this.destroyed` is `true`, the
+Component has been uninitialized and the reference should be removed.
 
-### Control: hasNode() and rendered()
+### Controls: hasNode() and rendered()
 
-Control is a kind of Component, so controls have the same `constructor()`, `create()`, `destroy()` system described above, but Control introduces a few more methods for managing it's representation in DOM. 
+`Control` is a kind of component, so controls have the same `constructor()`,
+`create()`, `destroy()` system described above, but the `Control` kind
+introduces a few more methods for managing its representation in the DOM. 
 
-Control is designed so that most methods and properties can be used without knowing whether there is corresponding DOM or not. For example, you can call
+`Control` is designed so that most of its methods and properties can be used
+without regard to whether there is a corresponding DOM node or not.  For
+example, you can call
 
 	this.$.control.applyStyle("color", "blue");
 
-If the control is rendered, it will put that style in DOM, if not, it will store that information until the DOM is created. Either way, when you see it, the text will be blue.
+If the control is rendered, that style is placed in the DOM; if not, the
+information is stored until the DOM is created.  Either way, when you see it,
+the text will be blue.
 
-There are certain things you cannot do unless DOM has been created. Obviously, you cannot do work directly on a DomNode if there is no DOM. Also, e.g., `getBounds()` returns values measured from DOM, so if there is no DOM, you won't get accurate bounds.
+There are certain things you cannot do unless DOM has been created.  Obviously,
+you cannot do work directly on a `DomNode` if there is no DOM.  Also, some methods
+(e.g., `getBounds()`) return values measured from DOM, so if there is no DOM,
+you won't get accurate values.
 
-In a Control, if you need to do something right away after DOM is created, you can do that in the `rendered()` method:
+In a control, if you need to do something immediately after the DOM is created,
+you can do that in the `rendered()` method:
 
 	rendered: function() {
 		// important! must call the inherited method
@@ -118,9 +157,15 @@ In a Control, if you need to do something right away after DOM is created, you c
 	}
 
 
-Another important note here is that even though DOM elements have been created when `rendered()` is called, the visual representation of it in the browser is generally not visible yet. Most browsers will not update the display until Enyo yields the javascript thread. This means you have a chance to make changes to the DOM in `rendered()` without causing annoying flashes.
+Another important thing to note here is that even though DOM elements have been
+created when `rendered()` is called, the visual representation of these elements 
+in the browser is generally not visible yet.  Most browsers will not update the
+display until Enyo yields the JavaScript thread.  This means you have the
+ability to make changes to the DOM in `rendered()` without causing annoying
+flashes.
 
-Whever you need to access a Control's DomNode directly, use the `hasNode()` method like this:
+Whenever you need to access a control's DOM node directly, use the `hasNode()`
+method:
 
 	twiddle: function() {
 		if (this.hasNode()) {
@@ -128,24 +173,31 @@ Whever you need to access a Control's DomNode directly, use the `hasNode()` meth
 		}
 	}
 
-> Remember that even if DOM is rendered, `this.node` may not have a value. A truthy result from `hasNode()` means `this.node` is initialized. Even in `rendered()`, you need to call `hasNode()` first.
+Remember that even if DOM is rendered, `this.node` may not have a value.  A
+truthy result from `hasNode()` means `this.node` is initialized.  Even within
+`rendered()`, you need to call `hasNode()` first:
 
->		rendered: function() {
-			this.inherited(arguments); // important! must call the inherited method
-			if (this.hasNode()) {
-				buffNode(this.node);
-			}
-		});
+	rendered: function() {
+		this.inherited(arguments); // important! must call the inherited method
+		if (this.hasNode()) {
+			buffNode(this.node);
+		}
+	});
 
-### When are Controls Rendered?
+### When Controls Are Rendered
 
-In general, Controls are not rendered until you you explicitly say so. Most applications have a `renderInto()` or `write()` method at the very top that renders the Controls in the application.
+In general, controls are not rendered until you you explicitly say so.  Most
+applications have a `renderInto()` or `write()` method at the very top that
+renders the controls in the application.
 
-Also, when creating Controls dynamically, Enyo will not render them until you call `render()` on those Controls, or one of their containers. This kind of code is common:
+Also, when creating controls dynamically, Enyo will not render those controls
+until you call `render()` on them, or on one of their containers.  You will
+often see code like the following:
 
 	updateControls: function() {
 		// destroy controls we made last time 
-		// ('destroyClientControls' destroys only dynamic controls, 'destroyControls' destroys everything)
+		// ('destroyClientControls' destroys only dynamic controls;
+		// 'destroyControls' destroys everything)
 		this.destroyClientControls(); 
 		// create new controls
   		for (var i=0; i<this.count; i++) {
@@ -156,22 +208,26 @@ Also, when creating Controls dynamically, Enyo will not render them until you ca
 		this.render();
 	});
 
-Destroying a Control will cause it to be removed from DOM right away, as this is a necessary part of the clean-up process. There is no 'unrender' method.
+Destroying a control will cause it to be removed from the DOM right away, as
+this is a necessary part of the cleanup process.  There is no `unrender` method.
 
 ### A Note About Kind Names
 
-The examples above use this syntax for creating kinds:
+The preceding examples use this syntax for creating kinds:
 
 	var MyKind = enyo.kind(...);
 
-Mostly in Enyo code you see this instead:
+In most Enyo code, however, you'll see the following:
 
 	enyo.kind({
 		name: "MyKind"
 		...
 	});
 
-Including a `name` property is optional. If you include it, Enyo will make a global reference to your kind using that name, and the name is available in instances as `this.kindName`. The `name` syntax is used mostly for these conveniences. For example, instead of
+Here the inclusion of a `name` property is optional.  If you include it, Enyo
+will make a global reference to your kind using that name, which will be
+available in instances as `this.kindName`.  The `name` syntax is used mostly to
+take advantage of these conveniences. For example, instead of
 
 	var foo = {
 		kinds: {
