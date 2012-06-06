@@ -31,8 +31,8 @@ well.
 ## Obtaining the Enyo Source Code
 
 (**Note:** Instructions for grabbing the Enyo code and starting an app as quickly
-as possible are available in the [Bootplate](bootplate.html) and
-[Dupliforking](dupliforking.html) documents.  This article provides more detailed
+as possible are available in the [Bootplate](Bootplate) and
+[Dupliforking](Dupliforking) documents.  This article provides more detailed
 background information and, as such, you may benefit from reading through it at
 least once before making use of the bootplate template.)
 
@@ -78,7 +78,7 @@ following app structure:
 		lib/
 
 (**Note:** A more detailed discussion of application structure may be found in
-[Managing Your Project](managing-your-project.html).)
+[Managing Your Project](Managing-Your-Project).)
 
 ## Starting an App
 
@@ -256,8 +256,8 @@ And our application folder looks like this:
 		index.html
 
 At this point, our app's structure closely resembles the basic scaffold
-described in [Managing Your Project](managing-your-project.html) and embodied
-in the [bootplate template](bootplate.html).  The stage is now set for the
+described in [Managing Your Project](Managing-Your-Project) and embodied
+in the [bootplate template](Bootplate).  The stage is now set for the
 project to grow to an arbitrary level of complexity.  Source files may be
 added and arranged in `source` (or subdirectories thereof), additional
 libraries may be added, and the project is set up correctly for pre-deployment
