@@ -51,7 +51,11 @@ Properties are placed in a `"published"` block and may include a default value. 
 
 ## Events
 
-Similarly, events are placed in an `"events"` block. To fire an event, we call the associated `"do"` method, another convenience provided by Enyo. For example, to fire the `onTriggered` event, we call `doTriggered`. Any arguments given will be passed along to the event handler. Here we are sending the current time. In a moment, we'll see how to handle this event.
+Similarly, events are placed in an `"events"` block. To fire an event, we call the associated `"do"` method, another convenience provided by Enyo. For example, to fire the `onTriggered` event, we call `doTriggered`. Any arguments given will be passed along to the event handler. In this case, we are sending the current time. In a moment, we'll see how to handle this event.
+
+## Components in Components: It's Turtles All the Way Down
+
+First, though, we'll create another component kind, named `SimulatedMessage`:
 
 	enyo.kind({
 		name: "SimulatedMessage",
@@ -64,13 +68,11 @@ Similarly, events are placed in an `"events"` block. To fire an event, we call t
 		}
 	});
 
-## Components in Components: It's Turtles All the Way Down
-
-Now we've created another component kind named `SimulatedMessage`. As you can see, there's a `components` block and it contains a configuration object specifying a `RandomizedTimer`. When we create a `SimulatedMessage` instance, it will create the components in its components block. We say that it "owns" these components, and it's responsible for their lifecycle. It can refer to these objects by name using the `this.$` hash; for example, `this.$.timer.setPercentTriggered(50)`. Users of the `SimulatedMessage` message component need not concern themselves with the timer component. Its behavior is encapsulated inside `SimulatedMessage`. All components are considered to be private to their owner.
+As you can see, there's a `components` block and it contains a configuration object specifying a `RandomizedTimer`. When we create a `SimulatedMessage` instance, it will create the components in its components block. We say that it "owns" these components, and it's responsible for their lifecycle. It can refer to these objects by name using the `this.$` hash; for example, `this.$.timer.setPercentTriggered(50)`. Users of the `SimulatedMessage` message component need not concern themselves with the timer component. Its behavior is encapsulated inside `SimulatedMessage`. All components are considered to be private to their owner.
 
 ## Handling Events
 
-Having addressed the issue of component ownership, we can turn our attention to the `onTriggered` event. Notice the string set for the `onTriggered` event in the `"timer"` configuration object. This is the name of the method in `SimulatedMessage` (the owner of the timer) that will be called to handle the event. Events are delegated to the generating component's owner by way of this named delegate string. This way we avoid the pain of having an add/remove listener mechanism. The first argument sent with every event is `"inSender"`, which is a reference to the component that generated the event. This argument facilitates code reuse since the same method can be used to handle multiple events distinguished by `inSender`. The other arguments vary by event. In this case we've sent the time at which the timer fired.
+Having addressed the issue of component ownership, we can turn our attention back to the `onTriggered` event. Notice the string set for the `onTriggered` event in the `"timer"` configuration object. This is the name of the method in `SimulatedMessage` (the owner of the timer) that will be called to handle the event. Events are delegated to the generating component's owner by way of this named delegate string. This way we avoid the pain of having an add/remove listener mechanism. The first argument sent with every event is `"inSender"`, which is a reference to the component that generated the event. This argument facilitates code reuse since the same method can be used to handle multiple events distinguished by `inSender`. The other arguments vary by event. In this case we've sent the time at which the timer fired.
 
 ## Summary
 
