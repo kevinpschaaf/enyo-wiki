@@ -76,7 +76,7 @@ Bootplate is a template that provides a complete starter project containing ever
 
 From here, there are a number of guides you can continue reading to help ramp up into Enyo development:
 
-* If you'd like a step-by-step introduction to Enyo, head to the [tutorials](file://localhost/Users/kevinschaaf/Documents/dev/enyo/github/enyojs.github.com/index.html).
-* To get off to the races writing Enyo apps, check out [Bootplate](https://github.com/enyojs/bootplate/wiki).
-* To learn more about the nuts and bolts of Enyo app structure, read the [Getting Started](https://github.com/enyojs/enyo/wiki/Getting-Started) guide.
-* For the complete list of documentation, see the [Enyo documentation](http://) overview.
+* If you'd like a step-by-step introduction to Enyo, head to the [tutorials](http://enyojs.com/tutorial).
+* To get off to the races writing Enyo apps, check out [Bootplate](Bootplate).
+* To learn more about the nuts and bolts of Enyo app structure, read the [Getting Started](Getting-Started) guide.
+* For the complete list of documentation, see the [Enyo documentation]() overview.
