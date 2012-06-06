@@ -1,34 +1,74 @@
-> New for Enyo 2.0b2+
+# Event Handling
 
-Enyo uses a message passing strategy for indirect communication between Components. We use the term _event_ for messages because it dovetails with common DOM usage. When using the _dom_ package in Enyo (default in core), DOM events and custom events are unified.
+Enyo employs a message-passing strategy for indirect communication between components.  We refer to these messages as _events_ to dovetail with common DOM usage.  In general, events bubble up the component tree from child to parent.  When using the `dom` package (part of the Enyo core), DOM events and custom events are unified.
 
-## Handler Syntax
+The use of events is key to enforcing encapsulation in your component design.  In most cases, the children of a component should have no knowledge of their parent.  So rather than having a child call functions on its parent (and thus tightly bind itself to the parent), a child should instead send events up to its parent, which may choose to handle (or not handle) particular events bubbling up from the child.
 
-An event handler in Enyo looks like this:
+## Sending Events
 
-	myEventHandler: function(inSender, inEvent) {
-		// can return true to indicate this event was handled and propagation should stop
+A component declares the events that it sends using an `events` block, e.g.:
+
+	events: {
+		onStateChanged:""
 	}
 
-`inSender` is the enyo.Component that passed the event to `this`. 
+Note that, by convention, event names always start with "on".
 
-`inEvent` is an object that contains event data. For DOM events, this is the standard DOM event object. For custom events, it's a custom object.
+For every event registered in a component's `events` block, a helper function `do<EventName>(inEvent)` is created on the kind, which the component may call to send the event up the component tree.  This function takes an optional `inEvent` parameter that can contain event-specific information to be passed to the handler.  For example, to send the "onStateChanged" event from the example above, a component would call:
 
-The handler can return a truthy value to stop propagating the event. 
+	this.doStateChanged(newState)  // parameter is specific to the "onStateChanged" event
 
-**Note:** the meaning of the return value is different from the classic DOM convention (historically, return value determines whether the default action occurs). If you need to control the default action on a DOM event, use the modern equivalent `inEvent.preventDefault()`. 
+Under the hood, the `do<EventName>` function wraps Enyo's generic `bubble` function for sending events up the component tree:
 
-**Note:** `inEvent.stopPropagation()` will not prevent propagation on events in Enyo, return true from the handler instead.
+	this.bubble(inEventName <, inEvent, inSender>)
 
-Because events can travel, the sender of an event is different from the originator of an event. The originator of an event is available as `inEvent.originator`.
+* `inEventName` is the event name (including the _on_ prefix). 
 
-For example, when clicked, a button originates an _onclick_ which bubbles up the control chain. The button's parent my bubble the event up to the button's grandparent. From the grandparent's perspective, the origin is the button and the sender is the button's parent.
+* `inEvent` is an optional object containing event-specific information (this is
+the same object listeners receive as `inEvent`, although it may be decorated,
+e.g., with the `originator` property). 
+
+* `inSender` should almost always be omitted, although you could use it to force
+a particular sender for the next handler.
+
+**Note:** Declaring an `events` block and using the `do<EventName>` helper function is preferable to using `enyo.bubble`, since the `events` block is more descriptive and serves to define the interface to your kind.
+
+## Handling Events
+
+An event handler is a function assigned to "catch" events bubbling up from children, and looks like this:
+
+	myEventHandler: function(inSender, inEvent) {
+		// can return true to indicate that this event was handled and
+		// propagation should stop
+	}
+
+* `inSender` is the `enyo.Component` that passed the event to `this`. 
+
+* `inEvent` is an object that contains event data.  For DOM events, this is the
+standard DOM event object.  For custom events, it's a custom object.
+
+The handler can return a truthy value to stop propagating the event.  Otherwise it will continue bubbling up the component tree. 
+
+Note that the meaning of the return value is different from the classic DOM
+convention (historically, the return value would determine whether the default
+action occurs).  If you need to control the default action on a DOM event, use
+the modern equivalent, `inEvent.preventDefault()`.
+
+`inEvent.stopPropagation()` will not prevent propagation of events in Enyo;
+return `true` from the handler instead.
+
+Because events will propagate until stopped, an event's sender may be different from its
+originator.  The originator of an event is available as `inEvent.originator`.
+
+For example, when clicked, a button originates an _onclick_  event, which
+bubbles up the control chain.  The button's parent may bubble the event up to
+the button's grandparent.  From the grandparent's perspective, the originator is
+the button and the sender is the button's parent.
 
 ## Attaching Handlers to Events
 
-There are two primary ways of listening to an event in a Component. 
-
-The first way is to set a handler name on an owned object, like so:
+There are two common ways of handling events in a `Component`.  The first is to
+set a handler name on an object owned by the component, like so:
 
 	components: [
 		{name: "thing", ontap: "thingTap"}
@@ -37,7 +77,7 @@ The first way is to set a handler name on an owned object, like so:
 		// do stuff
 	}
 
-The second way is to name a catch-all handler in the handlers block, like so:
+The second is to name a catch-all handler in the `handlers` block, like so:
 
 	handlers: {
 		ontap: "anythingTap"
@@ -46,13 +86,9 @@ The second way is to name a catch-all handler in the handlers block, like so:
 		// do stuff
 	}
 
-**Note:** `enyo.Control` creates a default handler mapping of `ontap` to `tap`. Therefore, to handle generic taps on a Control, you need only implement a `tap` method.
-
-	tap: function(inSender, inEvent) {
-		// tap events come here
-	}
-
-**Note:** If you use both methods at once, you will receive the event in both places by default. However, you can control this behavior by preventing propagation in `thingTap`. E.g.
+Note that if you use both event handling strategies at the same time, you
+will receive the event in both places by default.  You may avoid this behavior
+by preventing propagation in `thingTap`.  For example:
 
 	components: [
 		{name: "thing", ontap: "thingTap"}
@@ -61,38 +97,57 @@ The second way is to name a catch-all handler in the handlers block, like so:
 		ontap: "anythingTap"
 	},
 	thingTap: function(inSender, inEvent) {
-		// taps on _thing_ will bubble up to _anythingTap_ also, unless I stop propagation here
+		// taps on _thing_ will bubble up to _anythingTap_ also,
+		// unless I stop propagation here
 		return true; // handled here, don't propagate
 	}
 	anythingTap: function(inSender, inEvent) {
 		// do stuff
 	}
 
-If you need more fancy handling, you can use the `inSender` and `inEvent.origin` properties to help you discern the provenance of the event.
+If you need more sophisticated handling, you can use the `inSender` and
+`inEvent.originator` properties to help you discern the provenance of the event.
 	
-## Sending Events
 
-There are two common ways of sending an event. You can _bubble_ an event up, or _waterfall_ an event down.
+## Signals
 
-`this.bubble(inEventName <, inEvent, inSender>)`
-`this.waterfall(inEventName <, inEvent, inSender>)`
+There may be times when two distantly-related components in your app need to communicate with each other.  Using standard events would require passing an event up to a common parent (in the worst case, the top-level app kind), and then passing that event back down to the target component, which could involve a significant amount of plumbing.  For these cases, `enyo.Signals` is provided as a means of broadcasting and subscribing to global messages, bypassing the normal component tree.  Signals are also useful for hooking up non-Enyo events (e.g., PhoneGap events) to be handled by an Enyo kind.
 
-`bubble` sends the event up the object chain. `waterfall` sends the event down through the object tree.
+To broadcast an event, a sender simply invokes the static `send` function on `enyo.Signals`:
 
-`inEventName` is the event name (including the _on_ prefix). 
+	enyo.Signals.send(inEventName, inEvent);
 
-`inEvent` is an optional object containing event specified information (this is the same object listeners receive as `inEvent` although it may be decorated, e.g. with the `origin` property). 
+* `inEventName` is the event name (including the _on_ prefix). 
 
-`inSender` should almost always be omitted, although you could use it to force a particular sender for the next handler.
+* `inEvent` is an optional object containing event-specific information.
 
-**Note:** `inEventName` should include the _on_ prefix. In other words, a handler map like this:
+To listen for a signal, a component should include a `Signals` instance in its `components` block, while also specifying an event handler for the signal in question.  For example, a kind defined as follows...
 
-	handlers {
-		onActivate: "activate"
-	}
+	enyo.kind({
+		name:"MyKind",
+		components: [
+			{kind: "Signals", onSDKReady: "handleSDKReady"}
+		],
+		handleSDKReady: function() {
+			// Do stuff
+		}
+	})
 
-can capture an event sent like this:
+...will handle signals dispatched by a call like this:
 
-	this.bubble("onActivate");
+	enyo.Signals.send("onSDKReady");
 
-**Note:** In Enyo, DOM events are allowed to bubble all the way to `document` where they are handled by `enyo.dispatcher`. The dispatcher figures out where to send the event, and provides hooks for various bits of event processing. Whenever possible, dispatcher avoids disturbing original DOM events. Value-add events from dispatcher are sent as synthesized events, such as `ontap`, `ondown`, `onup`, `ondragstart`, `ondrag`, `ondragfinish`, `onenter`, and `onleave`. Most of these DOM-like events work cross-platform, so client code need not worry about touch vs mouse interfaces.
+## DOM Events
+
+In Enyo, DOM events are allowed to bubble all the way up to
+`document`, where they are handled by `enyo.dispatcher`.  The dispatcher figures
+out where to send the event and provides hooks for various bits of event
+processing.  Whenever possible, the dispatcher avoids disturbing original DOM
+events.  
+
+There are a number of value-add events the dispatcher sends as synthesized events, such
+as `ontap`, `ondown`, `onup`, `ondragstart`, `ondrag`, `ondragfinish`,
+`onenter`, and `onleave`.  Most of these DOM-like events work cross-platform, so
+client code does not need to distinguish between touch and mouse interfaces.
+
+As a matter of convention, DOM events (and events synthesized based on DOM events) remain lowercase when dispatched as Enyo events (i.e. `ontap`), but custom events declared by Enyo kinds use camel case (i.e. `onStateChanged`).
