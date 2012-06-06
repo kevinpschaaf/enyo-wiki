@@ -24,7 +24,7 @@ The core of the framework, known simply as `enyo` in the source code, provides p
 
 These pieces are actually separable (it's easy to make micro-builds of Enyo), but we believe they form a useful working set, so we provide them together as the Enyo core.
 
-Everything else described below is an optional package built on top of the core.  You can choose to include these *&agrave; la carte* to fit your application's needs.  However, these are only reference libraries for what we envision will be a large ecosystem of add-on libraries that bring different look and feel, layout options, service wrappers, etc.  Check out the [Enyo Community Gallery](http://enyojs.com/gallery/) to see just how easy it is to create and share new components and add-on libraries.
+Everything else described below is an optional package built on top of the core.  You can choose to include these *&agrave; la carte* to fit your application's needs.  However, these are only reference libraries for what we envision will be a large ecosystem of add-on libraries that bring different look and feel, layout options, service wrappers, etc.  Check out the [Enyo Community Gallery](http://enyojs.com/gallery) to see just how easy it is to create and share new components and add-on libraries.
 
 ## Onyx
 
@@ -69,7 +69,7 @@ The "extra" library holds a number of useful utility-type components, which are 
 
 ## Bootplate
 
-Bootplate is a template that provides a complete starter project containing everything you need to develop and deploy Enyo apps out of the box, and is now included in each release.  It contains current versions of Enyo and the most common libraries for app developers (Onyx and Layout), as well as scripts to minify and create deployable versions of the source and assets.  Get started with bootplate [here](https://github.com/enyojs/bootplate/wiki).
+Bootplate is a template that provides a complete starter project containing everything you need to develop and deploy Enyo apps out of the box, and is now included in each release.  It contains current versions of Enyo and the most common libraries for app developers (Onyx and Layout), as well as scripts to minify and create deployable versions of the source and assets.  Get started with bootplate [here](Bootplate).
 
 
 # Learn More
@@ -79,4 +79,4 @@ From here, there are a number of guides you can continue reading to help ramp up
 * If you'd like a step-by-step introduction to Enyo, head to the [tutorials](http://enyojs.com/tutorial).
 * To get off to the races writing Enyo apps, check out [Bootplate](Bootplate).
 * To learn more about the nuts and bolts of Enyo app structure, read the [Getting Started](Getting-Started) guide.
-* For the complete list of documentation, see the [Enyo documentation]() overview.
+* For the complete list of documentation, see the [Enyo documentation](https://github.com/enyojs/enyo/wiki) overview.
