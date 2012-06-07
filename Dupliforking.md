@@ -6,7 +6,7 @@ This document describes a way to "fork" a project multiple times, which we call 
 
 We invented this process because GitHub will only allow one fork per project, per organization.
 
-Since a person might want to make more than one app using the [Bootplate](bootplate.html)
+Since a person might want to make more than one app using the [Bootplate](Bootplate)
 template, we needed a way to enable this.
 
 ## Instructions
