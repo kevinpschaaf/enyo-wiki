@@ -1,5 +1,6 @@
-Tutorial, Part 2: Adding Onyx and Layout
-========================================
+# Tutorial, Part 2: Adding Onyx and Layout
+
+## Onyx and Layout
 
 In [Part 1](Tutorial) of the tutorial, we built a Twitter search application using just
 the core Enyo 2.0 library.  Since that initial installment first appeared,
@@ -7,8 +8,7 @@ we've released a set of controls and styles, called "Onyx".  In this
 extension of the tutorial, we'll use Onyx to update our application with
 a nice look and feel.
 
-Loading Onyx
-============
+## Loading Onyx
 
 Onyx exists outside of the Enyo core, so it has to be loaded with its own
 script and link tags.  Because Onyx is normally loaded as a library, we'll add
@@ -32,8 +32,7 @@ Web site:
 	    <script src="package.js"></script>
     </head>
 
-Updating the Application
-========================
+## Updating the Application
 
 In order for Onyx styles to work correctly, you need to apply the "onyx"
 class to your application object.  You can do this by adding
@@ -72,8 +71,7 @@ the corresponding Onyx kind names:
         { tag: "div", name: "tweetList" }
       ],
 
-Adding Features Using Onyx Controls
-===================================
+## Adding Features Using Onyx Controls
 
 At this point, one of the first things we notice is that there's no prompting
 to indicate what the search box is for.  Since `onyx.Button` is based on
@@ -115,8 +113,7 @@ intercepting the `onkeydown` event and looking for a `keyCode` value equal to 13
 If there's a match, we return `true` to stop the `keydown` event from going any
 further.
 
-Lonely at the Top
-=================
+## Lonely at the Top
 
 The search box looks lonely at the top of the page, so let's give it a
 border to make it pop.  Onyx provides several nice grouping options.  In this
@@ -139,8 +136,7 @@ our application kind's `components` block look like this:
       { tag: "div", name: "tweetList" }
     ],
 
-Fixing the Toolbar
-==================
+## Fixing the Toolbar
 
 We've made good progress on our app, but in its current state, it still has
 one big flaw--if we get more results than will fit on a screen, scrolling down
@@ -217,8 +213,7 @@ parent fittable control.  (A common mistake is to have an `enyo.FittableRows`
 or `enyo.FittableColumns` control as a child of your application kind with its
 `fit: true` control sized at 0 pixels.)
 
-Until Next Time
-===============
+## Until Next Time
 
 You can view the updated tutorial application online at
 <http://enyojs.com/tutorial/onyx/search.html>.  Compare it to the
