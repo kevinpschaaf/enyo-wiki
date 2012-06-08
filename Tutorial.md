@@ -245,7 +245,7 @@ and show the username in bold and the tweet text in a normal font.  For example,
 the following code
 
     <div style="border: 2px; padding: 10px; margin: 10px; min-height: 50px">
-    <img src="http://twitter.com/imgs/a.png" 
+    <img src="https://github.com/enyojs/enyo/wiki/assets/twitter-bird-blue-on-white.png" 
         style="width:50px; height:50px; float: left; padding-right: 10px">
     <b>handle:</b> <span>tweet text</span>
     </div>
@@ -253,7 +253,7 @@ the following code
 renders as
 
 <div style="border: 2px; padding: 10px; margin: 10px; min-height: 50px">
-<img src="http://twitter.com/imgs/a.png"
+<img src="https://github.com/enyojs/enyo/wiki/assets/twitter-bird-blue-on-white.png"
     style="width:50px; height:50px; float: left; padding-right: 10px">
 <b>handle:</b> <span>tweet text</span>
 </div>
@@ -494,8 +494,8 @@ tags, one to load the minimized `enyo.js` and one to load the local `package.js`
 file, which then references all the source.  For example, our `app.html` file
 will contain the following:
 
-      <link rel=stylesheet href="enyo-2.0b3/enyo.css">
-      <script src="enyo-2.0b3/enyo.js"></script>
+      <link rel=stylesheet href="enyo-2.0b5/enyo.css">
+      <script src="enyo-2.0b5/enyo.js"></script>
       <script src="package.js"></script>
 
 For deployment, the Enyo minimizer script knows how to look through the
