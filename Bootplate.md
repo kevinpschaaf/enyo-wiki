@@ -19,6 +19,10 @@ you want your project to live on GitHub will determine which one is right for yo
 
 2. Load `debug.html` in a browser and see "Hello World".
 
+Note: Even if you don't plan to "Duplifork" bootplate so you can push it back to github, if you pull the bootplate repo you will still need to initialize the enyo/libs submodules by running this command from with the bootplate app's directory:
+
+        git submodule update --init
+
 ### The Non-GitHub Way
 
 1. If you have downloaded the Enyo source from [enyojs.com](http://enyojs.com), the zip archive should
