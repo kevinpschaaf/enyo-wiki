@@ -340,7 +340,7 @@ Now, if we create a Tweet object...
 
 ...we'll get output that looks like this:
 
-![Rendering of tweet from unwiredben](http://enyojs.com/tutorial/tweet-1.png)
+![Rendering of tweet from unwiredben](https://github.com/enyojs/enyo/wiki/assets/tweet-1.png)
 
 Making a List, Checking It Twice
 --------------------------------
