@@ -43,3 +43,22 @@ Let's say you want to create a new app called "MillionDollars".
 5. Push to your new repository.
 
 You're all set!
+
+## Notes:
+The git version on older machines may not be up to the task. You'll know you fall into this if when you try the ``git submodule update --init`` command, you get git's helpful "usage" message. Worse, the git version available from the distribution's repository isn't at all recent, so just ``apt-get upgrade git-core`` isn't going to help.
+
+In order to get this working on some internal build machines, we had to do the following:
+
+        sudo apt-get install curl libcurl4-openssl-dev libexpat1-dev gettext asciidoc expat
+        git clone git://github.com/git/git.git
+        sudo apt-get remove git-core
+        make prefix=/usr CURLDIR=/usr/bin NO_R_TO_GCC_LINKER=YesPlease EXPATDIR=/usr/lib all 
+        sudo make prefix=/usr CURLDIR=/usr/bin NO_R_TO_GCC_LINKER=YesPlease EXPATDIR=/usr/lib install
+        git config --global http.sslVerify false
+
+We can't guarantee this will help, and do note that it involves replacing whatever version of git you currently have with the current dev version from github, but it works for us.
+
+References:
+* http://scottschulz.us/2008/06/07/ubuntu-hardy-the-10-minute-git-install/
+* http://git.661346.n2.nabble.com/fatal-Unable-to-find-remote-helper-for-http-tp5041606p5043357.html
+* http://stackoverflow.com/a/8755199
