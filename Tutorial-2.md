@@ -1,7 +1,7 @@
 Tutorial, Part 2: Adding Onyx and Layout
 ========================================
 
-In Part 1 of the tutorial, we built a Twitter search application using just
+In [Part 1](Tutorial) of the tutorial, we built a Twitter search application using just
 the core Enyo 2.0 library.  Since that initial installment first appeared,
 we've released a set of controls and styles, called "Onyx".  In this
 extension of the tutorial, we'll use Onyx to update our application with
