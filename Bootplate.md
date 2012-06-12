@@ -118,7 +118,7 @@ A bootplate project has the following structure:
 * `index.html` loads the application using built files only.  If built files are not
     available, it will redirect to `debug.html`.
 
-### Switching the submodules to "master"
+### Updating the Submodules Manually
 
 If you want to use top-of-trunk versions of enyo, layout, and onyx, you can do this with a couple of
 git commands.
@@ -129,3 +129,7 @@ git commands.
 The first command switches each submodule from being pinned to a specific commit to being on the master 
 branch, while the second pulls any new source changes from github.  You can also manually checkout specific
 tags or branches for each one manually if you want.
+
+If you want to use stable code, the Enyo team manually updates the submodules links from time-to-time as we
+make updates to Bootplate, so you can just pull the bootplate repo then use `git submodule update` to refresh
+your local tree.
