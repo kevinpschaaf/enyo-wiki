@@ -149,7 +149,6 @@ To pull the library into our app, we'll add "$lib/layout/fittable" to our
     enyo.depends(
       "$lib/onyx",
       "$lib/layout/fittable",
-      "$lib/extra/jsonp",
       "Tweet.js",
       "TwitterSearchApp.js"
     );
