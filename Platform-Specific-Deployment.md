@@ -20,11 +20,7 @@ are now ready to create a final product for deployment to your platform of choic
 
 From here you can follow the instructions in the [PhoneGap Getting Started Guide](http://phonegap.com/start#ios-x4) to deploy to the simulator or device.  To submit your app to the Apple App Store, you'll need to sign up for a developer account and review the documentation provided at <http://developer.apple.com>.
 
-Finally, please note the following:
-
-* For projects that require access to PhoneGap's native functionality, follow the directions in [Making Use of PhoneGap’s Native Functions](https://developer.palm.com/blog/2012/05/5690/).
-
-* For general tips on PhoneGap app development, see [PhoneGap Tips](https://developer.palm.com/blog/2012/05/phonegap-tips/).
+Finally, if your project requires access to PhoneGap's native functionality, follow the directions in [Making Use of PhoneGap’s Native Functions](https://developer.palm.com/blog/2012/05/5690/).
 
 ### Deploying to Android Using PhoneGap
 
@@ -39,11 +35,7 @@ Finally, please note the following:
 
 From here you can follow the instructions in the [PhoneGap Getting Started Guide](http://phonegap.com/start#android) to deploy to the emulator or device. To publish your app on Google Play, you'll need to sign up for a developer account and review the documentation provided at <http://developer.android.com>.
 
-Finally, please note the following:
-
-* For projects that require access to PhoneGap's native functionality, follow the directions in [Making Use of PhoneGap’s Native Functions](https://developer.palm.com/blog/2012/05/5690/).
-
-* For general tips on PhoneGap app development, see [PhoneGap Tips](https://developer.palm.com/blog/2012/05/phonegap-tips/).
+Finally, if your project requires access to PhoneGap's native functionality, follow the directions in [Making Use of PhoneGap’s Native Functions](https://developer.palm.com/blog/2012/05/5690/).
 
 ### Deploying as a Mobile App Using PhoneGap Build
 
