@@ -1,6 +1,6 @@
 # Making Use of PhoneGap's Native Functions
 
-In this document, we examine the relationship between Enyo and PhoneGap, making reference to a simple app that consists of the following code inside an `index.html` file:
+In this document, we examine the relationship between Enyo and PhoneGap (a.k.a. "Cordova"), making reference to a simple app that consists of the following code inside an `index.html` file:
 
     <!DOCTYPE html>
     <html>
@@ -9,6 +9,9 @@ In this document, we examine the relationship between Enyo and PhoneGap, making 
         <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 
         <title>Enyo and PhoneGap</title>
+
+        <!-- Cordova (i.e., PhoneGap) -->
+        <script src="cordova-1.8.1.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Enyo -->
         <script src="enyo/enyo.js" type="text/javascript"></script>
