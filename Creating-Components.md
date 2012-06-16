@@ -25,7 +25,7 @@ A component is an Enyo kind that can publish properties, expose events, and cont
 			this.stopTimer();
 			this.inherited(arguments);
 	  	},
-		start: function() 
+		start: function() {
 			this.job = window.setInterval(enyo.bind(this, "timer"), this.baseInterval);
 		},
 		stop: function() {
