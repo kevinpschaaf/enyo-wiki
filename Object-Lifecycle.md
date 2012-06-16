@@ -54,10 +54,10 @@ This override system is the same for any method, not just for `constructor`.
 
 Note that you could call an inherited method using only raw JavaScript, like so:
 
-	myKind.prototype.<method name>.apply(this, arguments);
+	MyKind.prototype.<method name>.apply(this, arguments);
 
 The `this.inherited` syntax is shorter and removes the need to specify the
-superkind's name (in this case, `myKind`).
+superkind's name (in this case, `MyKind`).
 
 Also note that `arguments` is a
 [JavaScript built-in](https://developer.mozilla.org/en/JavaScript/Reference/Functions_and_function_scope/arguments)
