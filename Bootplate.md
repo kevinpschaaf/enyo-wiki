@@ -1,12 +1,12 @@
 # Bootplate
 
-The **bootplate** template provides a complete starter project that supports source control
+The **Bootplate** template provides a complete starter project that supports source control
 and cross-platform deployment out of the box.  It can be used to facilitate both the
 creation of a new project and the preparation for its eventual deployment.
 
 ## Quick Start with Bootplate
 
-There are two ways to use the bootplate template to start a new project.  Whether or not
+There are two ways to use the Bootplate template to start a new project.  Whether or not
 you want your project to live on GitHub will determine which one is right for you.
 
 ### The GitHub Way
@@ -19,15 +19,14 @@ you want your project to live on GitHub will determine which one is right for yo
 
 2. Load `debug.html` in a browser and see "Hello World".
 
-**Note:** Even if you don't plan to "Duplifork" bootplate so you can push it back to GitHub, if you pull the bootplate repo from GitHub you will still need to initialize the `enyo/libs` submodules by running this command from within the bootplate app's directory:
+**Note:** Even if you don't plan to "Duplifork" bootplate so you can push back to GitHub, if you pull the bootplate repo from GitHub, you will still need to initialize the `enyo/libs` submodules by running this command from within the bootplate app's directory:
 
         git submodule update --init
 
 ### The Non-GitHub Way
 
 1. If you have downloaded the Enyo source from [enyojs.com](http://enyojs.com), the zip archive should
-    contain a copy of the bootplate template without the source control hooks.  Locate
-    the appropriate folder and open it.
+    contain a copy of the Bootplate template (without the source control hooks) in a top-level directory called `bootplate`.  Locate this folder and open it.
 
 2. Load `debug.html` in a browser and see "Hello World".
 
@@ -38,10 +37,9 @@ At this point, you would refine your project through the normal cycle of develop
 For the purposes of this article, let's assume that you've completed all
 of your work on the HelloWorld app, and turn our attention to the deployment process.
 
-
 ## Preparing for Deployment
 
-By following the structure established by the bootplate template, you set yourself up
+By following the structure established by the Bootplate template, you set yourself up
 for a relatively pain-free experience when it comes time to prepare your finished app for
 deployment:
 
@@ -122,16 +120,16 @@ A bootplate project has the following structure:
 
 ### Updating the Submodules Manually
 
-If you want to use top-of-trunk versions of enyo, layout, and onyx, you can do this with a couple of
-git commands.
+If you want to use top-of-tree versions of enyo, layout, and onyx, you can do this with a couple of
+git commands:
 
     git submodule foreach 'git checkout master'
     git submodule foreach 'git pull'
 
 The first command switches each submodule from being pinned to a specific commit to being on the master 
-branch, while the second pulls any new source changes from github.  You can also manually checkout specific
-tags or branches for each one manually if you want.
+branch, while the second pulls any new source changes from GitHub.  You can also manually check out specific
+tags or branches if you want.
 
-If you want to use stable code, the Enyo team manually updates the submodules links from time-to-time as we
-make updates to Bootplate, so you can just pull the bootplate repo then use `git submodule update` to refresh
+If you want to use stable code, the Enyo team manually updates the submodules links from time to time as we
+make updates to Bootplate, so you can just pull the bootplate repo and then use `git submodule update` to refresh
 your local tree.
