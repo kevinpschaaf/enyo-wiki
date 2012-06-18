@@ -32,7 +32,7 @@ you want your project to live on GitHub will determine which one is right for yo
 
 ## Development
 
-At this point, you would refine your project through the normal cycle of development and testing, starting with the `app.js`/`app.css` files provided in the template.  As you factor your app into more and more JavaScript and CSS files and use libraries with their own `package.js` files, just make sure to include them in your top-level `source/package.js`, and the minify/deploy scripts described below will combine them all into a single js/css file for deployment.
+At this point, you would refine your project through the normal cycle of development and testing, starting with the `app.js` and `app.css` files provided in the template.  As you factor your app into more and more JavaScript and CSS files and use libraries with their own `package.js` files, just make sure to include these in your top-level `source/package.js` and the `minify` and `deploy` scripts described below will combine them all into a single JavaScript file and a single CSS file for deployment.
 
 For the purposes of this article, let's assume that you've completed all
 of your work on the HelloWorld app, and turn our attention to the deployment process.
