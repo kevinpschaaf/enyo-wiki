@@ -44,7 +44,7 @@ Note that the `enyo.List` includes a scroller and therefore should *not* be plac
 For the following list...
 
 	components: [
-		{kind: "List", fit: true, rows: 100, onSetupRow: "setupRow", components: [
+		{kind: "List", fit: true, count: 100, onSetupItem: "setupItem", components: [
 			{classes: "item", ontap: "itemTap", components: [
 				{name: "name"},
 				{name: "index", style: "float: right;"}
@@ -54,7 +54,7 @@ For the following list...
 
 ...one might write event handlers like this:
 
-	setupRow: function(inSender, inEvent) {
+	setupItem: function(inSender, inEvent) {
 		// given some available data.
 		var data = this.data[inEvent.index];
 		// setup the controls for this item.
@@ -69,6 +69,6 @@ It's possible for the list row to contain many controls with complex styling. Ho
 
 ## Flyweight
 
-Any time a list row is rendered, the `onSetupRow` event is fired.  An application can therefore control the rendering of the controls in a row by calling methods on those controls within this event handler.  An application can update a specific row by forcing it to render using the list's `renderRow(inIndex)` method.
+Any time a list row is rendered, the `onSetupItem` event is fired.  An application can therefore control the rendering of the controls in a row by calling methods on those controls within this event handler.  An application can update a specific row by forcing it to render using the list's `renderRow(inIndex)` method.
 
 In addition, it is possible to create controls with more complex interactions that are specifically tailored to function correctly in a flyweight context. Events for controls in a list will be decorated with both the index of the row being interacted with and also the flyweight controller for the control (i.e., `event.index` and `event.flyweight`).  The list's `prepareRow(inIndex)` method can be used to assign the list's controls to a specific list row, allowing persistent interactivity with that row.  When the interaction is complete, the list's `lockRow` method should be called.  The `onyx.SwipeableItem` kind may be a useful reference when using these methods.
