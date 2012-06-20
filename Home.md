@@ -37,7 +37,7 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 * [Coding Style Guide](https://github.com/enyojs/enyo/wiki/Style-Guide)
 
 ## Knowledge Base
-* [Why We Don't Work With "use strict"](https://github.com/enyojs/enyo/wiki/Why-We-Don%27t-Work-with-%22use-strict%22)
+* [Why We Don't Work With "use strict"](https://github.com/enyojs/enyo/wiki/Enyo-and-Use-Strict)
 * [Server Considerations](https://github.com/enyojs/enyo/wiki/Server-Considerations)
 
 ## Reference
@@ -47,5 +47,4 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 * [Enyo 2.0 beta 3 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b3-Release-Notes) (March 22, 2012)
 * [Enyo 2.0 beta 4 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b4-Release-Notes) (April 27, 2012)
 * [Enyo 2.0 beta 5 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b5-Release-Notes) (June 12, 2012)
-
 
