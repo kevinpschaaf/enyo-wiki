@@ -37,7 +37,7 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 * [Coding Style Guide](https://github.com/enyojs/enyo/wiki/Style-Guide)
 
 ## Knowledge Base
-* [Why We Don't Work With "use strict"](https://github.com/enyojs/enyo/wiki/Use-Strict)
+* [Why We Don't Work With "use strict"](https://github.com/enyojs/enyo/wiki/Why-We-Don%27t-Work-with-%22use-strict%22)
 * [Server Considerations](https://github.com/enyojs/enyo/wiki/Server-Considerations)
 
 ## Reference
