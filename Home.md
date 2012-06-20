@@ -35,6 +35,9 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 * [Encapsulation in Enyo](https://github.com/enyojs/enyo/wiki/Encapsulation-in-Enyo)
 * [Documenting Code for the API Viewer](https://github.com/enyojs/enyo/wiki/Documenting)
 * [Coding Style Guide](https://github.com/enyojs/enyo/wiki/Style-Guide)
+
+## Knowledge Base
+* [Why We Don't Work With "use strict"](https://github.com/enyojs/enyo/wiki/Use-Strict)
 * [Server Considerations](https://github.com/enyojs/enyo/wiki/Server-Considerations)
 
 ## Reference
