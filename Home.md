@@ -28,6 +28,7 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 ## Deploying Apps
 
 * [Deploying to iOS, Android, Chrome, and Windows](https://github.com/enyojs/enyo/wiki/Platform-Specific-Deployment)
+* [Making Use of PhoneGap Native Functions](https://github.com/enyojs/enyo/wiki/PhoneGap-Native-Functions)
 
 ## Best Practices
 
