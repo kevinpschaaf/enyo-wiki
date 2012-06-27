@@ -10,19 +10,29 @@ The Enyo source code uses leading tabs for indentation of code.
 
 First curly brace at end of line, final curly brace on a line by itself:
 
-		for (var i=0; i<100; i++) { // first curly brace at end of line
-			...
-		} // final curly brace on a line by itself
+    for (var i=0; i<100; i++) { // first curly brace at end of line
+        ...
+    } // final curly brace on a line by itself
 
 Always use curly braces:
 
-	// bad
-	if (x) foo(); 
+    // bad
+    if (x) foo(); 
 
-	// good
-	if (x) {
-		foo();
-	}
+    // good
+    if (x) {
+        foo();
+    }
+
+Else clauses have the `else` keyword between the braces:
+
+    if (x) {
+        ...
+    } else if (y) {
+        ...
+    } else {
+        ...
+    }
 
 ## Punctuation
 
