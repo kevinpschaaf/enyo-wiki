@@ -43,6 +43,9 @@ By following the structure established by the Bootplate template, you set yourse
 for a relatively pain-free experience when it comes time to prepare your finished app for
 deployment:
 
+0. Check that you have the node.js runtime installed on your system.  We need version 0.6 or 
+   later for the deploy scripts to work.  You can download it from http://nodejs.org/.
+
 1. Duplicate the project folder and give it a name, e.g., `"myapp-deploy"`.  All the steps
     below will be done using this duplicate folder.  (Keep your development version safe!)
 
