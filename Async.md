@@ -52,7 +52,7 @@ until all functions return (synchronously):
     // synchronously.
     var x = transaction();
 
-    // Add an handler that will be called if an error is detected. This handler
+    // Add a handler that will be called if an error is detected. This handler
     // recovers and sends a custom message.
     x.error(function(inSender, inResponse) {
         console.log("error: calling recover", inResponse);
