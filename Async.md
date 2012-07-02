@@ -4,7 +4,7 @@
 	
 `enyo.Async` is an **Object**, not a **Component**; thus, you may not declare an
 `Async` in a `components` block. If you want to use `Async` as a component, you
-should probably be using <a href="#enyo.WebService">enyo.WebService</a> instead.
+should probably be using `enyo.WebService` instead.
 
 An Async object represents a task that has not yet completed. You may attach
 callback functions to an Async, to be called when the task completes or

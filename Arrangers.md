@@ -1,8 +1,8 @@
 # Arrangers
 
-`enyo.Arranger` is an <a href="#enyo.Layout">enyo.Layout</a> that considers one
-of its controls to be active. The other controls are placed relative to the
-active one as makes sense for the layout.
+`enyo.Arranger` is an `enyo.Layout` that considers one of its controls to be
+active. The other controls are placed relative to the active one as makes sense
+for the layout.
 
 Arranger supports dynamic layouts, meaning it's possible to transition between
 its layouts via animation. Typically, arrangers should lay out controls using
@@ -12,14 +12,13 @@ controls in an Arranger are absolutely positioned, and the Arranger kind has an
 setting of "auto" ensures that this will occur if enabled by the platform.
 
 Subkinds of Arranger (e.g., `CardArranger`, `CarouselArranger`) are typically
-used as layouts for instances of <a href="#enyo.Panels">enyo.Panels</a>, which
-uses the Arranger API to implement transitions between layouts. Implement the
-`size` method to size controls and perform other expensive layout operations
-that are only required when the layout reflows. Implement the `start` and
-`finish` methods to specify behavior that should occur when a transition begins
-and ends. The `start` method can set the `transitionPoints` array on the layout
-container. `transitionPoints` contains the arrangements between which the layout
-should transition.
+used as layouts for instances of `enyo.Panels`, which uses the Arranger API to
+implement transitions between layouts. Implement the `size` method to size
+controls and perform other expensive layout operations that are only required
+when the layout reflows. Implement the `start` and `finish` methods to specify
+behavior that should occur when a transition begins and ends. The `start` method
+can set the `transitionPoints` array on the layout container. `transitionPoints`
+contains the arrangements between which the layout should transition.
 
 Implement the `arrange` method to position controls relative to each other. This
 method is where the real layout work occurs. An arranger only needs to specify
