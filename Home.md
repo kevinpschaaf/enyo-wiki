@@ -24,6 +24,7 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 
 * [Using Lists](https://github.com/enyojs/enyo/wiki/Lists)
 * [Using Panels](https://github.com/enyojs/enyo/wiki/Panels)
+* [Signals](https://github.com/enyojs/enyo/wiki/Signals)
 
 ## Deploying Apps
 
