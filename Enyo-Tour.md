@@ -20,6 +20,7 @@ The core of the framework, known simply as `enyo` in the source code, provides p
 * **Event routing** - Dispatcher and Signals
 * **Services model** - Async and Ajax
 * **Basic HTML components** - Base UI
+* **Touch support** - Touch scroller and gesture simulation
 * **Package loader** - `enyo.depends()` and `package.js`
 
 These pieces are actually separable (it's easy to make micro-builds of Enyo), but we believe they form a useful working set, so we provide them together as the Enyo core.
