@@ -1,6 +1,6 @@
 # Signals
 
-Signals components are used to listen to global messages.
+`Signals` components are used to listen to global messages.
 
 An object with a Signals component can listen to messages sent from anywhere by
 declaring handlers for them.
@@ -23,7 +23,7 @@ example:
 		}
     });
 
-Note that, like all Enyo message handlers, the signal handler(`transmission`)
+Note that, like all Enyo message handlers, the signal handler (`transmission`)
 receives two parameters: a reference to the component that sent the message (in
 this case, our own `Signals` object, `this.$.signals`), and any payload the
 transmitter included in the broadcast.
@@ -49,4 +49,5 @@ kind:
 * The `send` method is on the `enyo.Signals` kind itself, not an instance of a
     Signals component.
 
-Do not abuse Signals. Coupling objects with global communication is considered evil.
+Do not abuse Signals. Coupling objects with global communication is considered
+evil.
