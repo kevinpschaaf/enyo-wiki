@@ -36,7 +36,7 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 
 * [Managing Project Complexity](https://github.com/enyojs/enyo/wiki/Managing-Your-Project)
 * [Encapsulation in Enyo](https://github.com/enyojs/enyo/wiki/Encapsulation-in-Enyo)
-* [Documenting Code for the API Viewer](https://github.com/enyojs/enyo/wiki/Documenting)
+* [Documenting Code for the API Viewer](https://github.com/enyojs/enyo/wiki/Documenting-Code)
 * [Coding Style Guide](https://github.com/enyojs/enyo/wiki/Style-Guide)
 
 ## Knowledge Base
