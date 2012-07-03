@@ -55,3 +55,8 @@ Single space after any keyword, except `function`:
 	x = function() {
 		...
 	}
+
+## Commenting
+
+For code commenting guidelines, see
+[Documenting Code for the API Viewer](Documenting-Code).
