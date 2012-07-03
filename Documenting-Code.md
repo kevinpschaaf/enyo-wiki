@@ -43,7 +43,7 @@ add a `*` to the comment syntax:
 ## Visibility
 
 There are two visibility states in Enyo, denoted by pragmas that control the
-visibility of the properties that follow.
+visibility of the properties they precede.
 
 - Public
 	- Default status
