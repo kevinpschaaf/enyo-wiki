@@ -26,7 +26,7 @@ Under the hood, the `do<EventName>` function wraps Enyo's generic `bubble` funct
 
 * `inEvent` is an optional object containing event-specific information (this is
 the same object listeners receive as `inEvent`, although it may be decorated,
-e.g., with the `originator` property). 
+e.g., with the `originator` property).  Note, this must be a JavaScript object, and not a primitive.
 
 * `inSender` should almost always be omitted, although you could use it to force
 a particular sender for the next handler.
