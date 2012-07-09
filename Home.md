@@ -17,6 +17,7 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 
 * [Creating Components](https://github.com/enyojs/enyo/wiki/Creating-Components)
 * [Creating Controls](https://github.com/enyojs/enyo/wiki/Creating-Controls)
+* [Creating Kinds](https://github.com/enyojs/enyo/wiki/Creating-Kinds)
 * [Object Lifecycle](https://github.com/enyojs/enyo/wiki/Object-Lifecycle)
 * [Event Handling](https://github.com/enyojs/enyo/wiki/Event-Handling)
 * [Published Properties](https://github.com/enyojs/enyo/wiki/Published-Properties)
