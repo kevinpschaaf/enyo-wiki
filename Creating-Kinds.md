@@ -2,12 +2,16 @@
 
 ## enyo.kind
 
-`enyo.kind(inProps)` is the Enyo framework's method for generating kinds.  A kind,
+`enyo.kind(inProps)` is the Enyo framework's method for generating kinds. A kind,
 you'll recall, is a constructor-with-prototype (like a class) that has advanced
 features like prototype-chaining (inheritance).
 
 A plug-in system is included for extending the abilities of the kind generator,
 and constructors are allowed to perform custom operations when subclassed.
+
+In this article, we look at several things that happen when `enyo.kind` is
+invoked. To learn about what happens once you have an instantiated object, see
+[Object Lifecycle](https://github.com/enyojs/enyo/wiki/Object-Lifecycle).
 
 ## Special Property Names
 
@@ -43,7 +47,8 @@ processing.	Some examples of special properties are:
 				kind: enyo.Object
 			});
 
-* `constructor`: A function to call when a new instance is created. Actually stored on the prototype as `_constructor`.
+* `constructor`: A function to call when a new instance is created; it is
+    actually stored on the prototype as `_constructor`.
 
 		// Create a function MyKind with a prototype, derived from enyo.Object.
 		// _constructor_ is called when an instance is created. 
@@ -57,7 +62,8 @@ processing.	Some examples of special properties are:
 			}
 		});
 
-* `statics`: Properties from any `statics` object are copied onto the	constructor directly, instead of the prototype.
+* `statics`: Properties from any `statics` object are copied onto the
+    constructor directly, instead of the prototype.
 
 		// Create a kind with a static method.
 		enyo.kind({
@@ -71,11 +77,13 @@ processing.	Some examples of special properties are:
 		// Invoke the static info() method of MyKind.
 		console.log(MyKind.info());
 
-Certain kinds in the framework define their own special properties, e.g., the `published` property supported by `enyo.Object`.
+Certain kinds in the framework define their own special properties, e.g., the
+`published` property supported by `enyo.Object`.
 
 ## this.inherited
 
-`this.inherited` allows you to easily call the superkind method for any method that has been overridden:
+`this.inherited` allows you to easily call the superkind method for any method
+that has been overridden:
 
 		enyo.kind({
 			name: "MyKind",
@@ -94,4 +102,8 @@ Certain kinds in the framework define their own special properties, e.g., the `p
 			}
 		});
 
-The first argument to `this.inherited` must be the literal `arguments`, which is a special JavaScript variable containing information about the executing function.
+The first argument to `this.inherited` must be the literal `arguments`, which is
+a special JavaScript variable containing information about the executing function.
+
+For more information on the proper usage of `this.inherited`, see [Object
+Lifecycle](https://github.com/enyojs/enyo/wiki/Object-Lifecycle).
