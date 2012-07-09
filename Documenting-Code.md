@@ -1,22 +1,19 @@
 # Documenting Code
 
-## How to document code in Enyo
+## What to document
 
 The [Enyo API Viewer](http://enyojs.com/api) enables a live view of
 documentation drawn from the source code of Enyo core and its related libraries.
 
-To enable the viewer to show documentation, a certain format must be followed.
-
-## What is documented
-
 The API Viewer looks at all publicly visible kinds, functions, and properties,
-and displays them along with their documentation comments.
-
-In addition, the ancestry of kinds is also shown, including inherited methods
-and properties.
+and displays them along with their documentation comments.  In addition, the
+ancestry of kinds is shown, including inherited methods and properties.
 
 When contributing a new kind, be sure to include a summary of the kind, along
 with documentation for all events, published properties, and public methods.
+
+Also, to ensure that the viewer will be able to display your documentation,
+please follow the formatting guidelines outlined below.
 
 ## Markdown
 
