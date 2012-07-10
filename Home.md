@@ -28,6 +28,7 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 * [Using Panels](https://github.com/enyojs/enyo/wiki/Panels)
 * [Async](https://github.com/enyojs/enyo/wiki/Async)
 * [Signals](https://github.com/enyojs/enyo/wiki/Signals)
+* [Gestures](https://github.com/enyojs/enyo/wiki/Gestures)
 
 ## Deploying Apps
 
