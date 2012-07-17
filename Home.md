@@ -49,8 +49,9 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 ## Reference
 
 * [API Documentation](http://enyojs.com/api/)
-* [Enyo 2.0 beta 2 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b2-Release-Notes) (February 29, 2012)
-* [Enyo 2.0 beta 3 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b3-Release-Notes) (March 22, 2012)
-* [Enyo 2.0 beta 4 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b4-Release-Notes) (April 27, 2012)
+* [Enyo 2.0 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0-Release-Notes) (July 18, 2012)
 * [Enyo 2.0 beta 5 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b5-Release-Notes) (June 12, 2012)
+* [Enyo 2.0 beta 4 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b4-Release-Notes) (April 27, 2012)
+* [Enyo 2.0 beta 3 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b3-Release-Notes) (March 22, 2012)
+* [Enyo 2.0 beta 2 Release Notes](https://github.com/enyojs/enyo/wiki/Enyo-2.0b2-Release-Notes) (February 29, 2012)
 
