@@ -18,15 +18,15 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 * In `enyo.UiComponent`, blocked resize events for hidden UiComponents.
 
-* In `enyo.WebService`, changed name of `callback` property to `callbackName` to match the name expected by JsonpRequest.
+* In `enyo.WebService`, changed name of `callback` property to `callbackName` to match the name expected by `JsonpRequest`.
 
 * In the Playground sample, a missing style has been added to `Playground.css`.
 
-* In ScrollerSample, the Picker now uses `onSelect` instead of `onChange`.
+* In ScrollerSample, the Picker now listens for `onSelect` instead of `onChange`.
 
 ## Layout
 
-* In `enyo.Arranger`, fixed several issues relating to positioning and visibility.  Also implemented `destroy()` for each of the Arranger kinds, so they leave child controls in a reasonable state when changing arrangers.
+* In `enyo.Arranger`, fixed several issues related to positioning and visibility.  Also implemented `destroy()` for each of the Arranger kinds, so they leave child controls in a reasonable state when changing arrangers.
 
 * In FittableSample, fixed layout issues on iOS.
 
@@ -48,6 +48,20 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 * In `enyo.PulldownList`, made Puller dynamically reference the list being pulled, allowing you to use multiple PulldownLists.
 
+## Onyx
+
+* Added new widgets: `Drawer`, `Item`, `Menu`, `MoreToolbar`,  `Picker`, `FlyweightPicker`, `Scrim`, `Spinner`,  and `Tooltip`.
+
+* Added code samples for new widgets.
+
+* Changed `onyx.MenuDecorator` to allow menus, pickers, etc. to work inside `MoreToolbar`.
+
+* In `onyx.Popup`, added scrim support and z-index support.
+
+* Updated menus and pickers to use separate events for internal and client communication.
+
+* Updated code samples for numerous widgets, including ButtonSample, GroupBoxSample, InputSample, and PopupSample.
+
 ## Tools
 
 * Fixed the `minify.js` build script for Node 0.8.2.
@@ -56,4 +70,4 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 ## Documentation
 
-The documentation available in the API Viewer has been reviewed, and significant additions have been made.
+The documentation available in the API Viewer tool has been reviewed and significant additions have been made.
