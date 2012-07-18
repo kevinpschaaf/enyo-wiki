@@ -4,7 +4,7 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 ## Sampler
 
-* A new Sampler app has been added, with its own new repository.
+* A new Sampler app has been added, along with its own new repository.
 
 ## Enyo
 
