@@ -1,6 +1,6 @@
 # Enyo 2.0 Release Notes
 
-Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 release.
+Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 release.  This isn't comprehensive; see the commits in GitHub for a complete list of changes.
 
 ## Sampler
 
