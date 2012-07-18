@@ -64,6 +64,7 @@ The API viewer now shows the package a kind comes from at the top of the details
 
 These problems are under investigation for fixing in future versions of Enyo:
 
+* Lots of controls aren't working in Google Chrome for Android.
 * In Firefox, some draggable items don't behave properly, showing a drag icon and 
   continuing to respond after the mouse button has been released.
 * In WebKit-based browsers, dragging in text fields can cause unscrollable divs (like those 
