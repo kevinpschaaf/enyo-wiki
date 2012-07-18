@@ -68,7 +68,7 @@ These problems are under investigation for fixing in future versions of Enyo:
   continuing to respond after the mouse button has been released.
 * In WebKit-based browsers, dragging in text fields can cause unscrollable divs (like those 
   used in panel arrangers) to scroll, causing the layout code to misbehave.
-* In Internet Explorer, controls are not marked as unselecable.
+* In Internet Explorer, controls are not marked as unselectable.
 * Nested `onyx.Drawer` controls don't open correctly.
 
 For more information, see our bug database at https://enyojs.atlassian.net.
