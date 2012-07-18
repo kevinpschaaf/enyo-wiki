@@ -6,6 +6,10 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 * A new Sampler app has been added, along with its own new repository at https://github.com/enyojs/sampler.
 
+## Bootplate
+
+* This was updated with the 2.0GA code and updated API tool.
+
 ## Enyo
 
 * In `enyo.platform`, added a regex to detect desktop versions of Safari.
