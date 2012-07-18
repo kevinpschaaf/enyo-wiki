@@ -34,7 +34,7 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 * In `enyo.List`, fixed issue that could cause lists in nested panels to become unscrollable.
 
-* Fixed issue causing List-Flickr to not load on IE9.
+* Fixed issue causing list-flickr example to not load on IE9.
 
 * In `enyo.Node`, added cross-platform CSS3 compatibility and an optional `onlyIconExpands` property.
 
