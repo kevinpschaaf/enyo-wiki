@@ -1,6 +1,6 @@
 # Enyo 2.0 Release Notes
 
-Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 release.  This isn't comprehensive; see the commits in GitHub for a complete list of changes.
+Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 release.  (Note that this list is not comprehensive; see the commit history in GitHub for a complete list of changes.)
 
 ## Sampler
 
@@ -8,7 +8,7 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 ## Bootplate
 
-* This was updated with the 2.0GA code and updated API tool.
+* The Bootplate template has been updated with the 2.0GA code and an improved API Viewer tool.
 
 ## Enyo
 
@@ -57,18 +57,18 @@ Welcome to Enyo 2.0.  The following items have changed since the 2.0 beta 5 rele
 
 ## Documentation
 
-The documentation available in the API Viewer tool has been reviewed and significant additions have been made.
-The API viewer now shows the package a kind comes from at the top of the details view.
+* The documentation available in the API Viewer tool has been reviewed and significant additions have been made.
+* The API Viewer now shows the package a kind comes from at the top of the details view.
 
 ## Known Issues
 
-These problems are under investigation for fixing in future versions of Enyo:
+The following issues are under investigation for fixing in future versions of Enyo:
 
-* Lots of controls aren't working in Google Chrome for Android.
-* In Firefox, some draggable items don't behave properly if they're not in control with the enyo-unselectable
+* Many controls aren't working in Google Chrome for Android.
+* In Firefox, some draggable items don't behave properly if they're not in a control with the `enyo-unselectable`
   style applied.  Instead of dragging, they show a content icon and continue to respond after the mouse 
   button has been released.
-* In WebKit-based browsers, dragging in text fields can cause unscrollable divs (like those 
+* In WebKit-based browsers, dragging in text fields can cause unscrollable divs (such as those 
   used in panel arrangers) to scroll, causing the layout code to misbehave.
 * In Internet Explorer, controls are not marked as unselectable.
 * Nested `onyx.Drawer` controls don't open correctly.
