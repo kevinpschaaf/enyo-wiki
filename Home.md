@@ -26,7 +26,8 @@ Welcome to the Enyo Documentation overview.  Below you'll find our current docum
 
 * [Using Lists](https://github.com/enyojs/enyo/wiki/Lists)
 * [Using Panels](https://github.com/enyojs/enyo/wiki/Panels)
-* [Async](https://github.com/enyojs/enyo/wiki/Async)
+* [Arrangers](https://github.com/enyojs/enyo/wiki/Arrangers)
+* [enyo.Async](https://github.com/enyojs/enyo/wiki/Async)
 * [Signals](https://github.com/enyojs/enyo/wiki/Signals)
 * [Gestures](https://github.com/enyojs/enyo/wiki/Gestures)
 
