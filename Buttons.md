@@ -12,7 +12,7 @@ applications.  This document surveys the types of buttons that you are most like
 ![tap me button](https://github.com/enyojs/enyo/wiki/assets/buttons-1.png)
 
 When an `onyx.Button` is tapped,
-it generates an `ontap` event; you can respond to the event by specifying a handler method, e.g.:
+it generates an `ontap` event; you may respond to the event by specifying a handler method, e.g.:
 
     {kind: "onyx.Button", content: "tap me", ontap: "buttonTapped"},
 
@@ -33,3 +33,35 @@ In addition, you may customize the look of a button by specifying foreground and
     ]}
 
 ![Buttons in a Toolbar](https://github.com/enyojs/enyo/wiki/assets/buttons-2.png)
+
+You may also place an image inside a button, with or without accompanying text, as in the following examples:
+
+    {kind: "onyx.Button", ontap:"buttonTapped", components: [
+        {kind: "onyx.Icon", src: "https://github.com/enyojs/enyo/wiki/assets/fish_bowl.png"}
+    ]}
+
+![Fish Bowl Button](https://github.com/enyojs/enyo/wiki/assets/buttons-3.png)
+
+    {kind: "onyx.Button", ontap:"buttonTapped", components: [
+        {tag: "img", attributes: {src: "https://github.com/enyojs/enyo/wiki/assets/fish_bowl.png"}},
+        {content: "Go Fish"}
+    ]}
+
+![Go Fish Button](https://github.com/enyojs/enyo/wiki/assets/buttons-4.png)
+
+## onyx.IconButton
+
+Similar effects may be achieved using `onyx.IconButton`, a subkind of `onyx.Icon`.  For instance, the code
+
+    {kind: "onyx.IconButton", src: "assets/my_icon.png"}
+
+yields an icon that acts like a button, but is not displayed against the shaded rectangular background generally associated with buttons.
+
+One may also use `onyx.Icon` to create a button with both text and an image:
+
+    {kind: "onyx.Button", ontap: "buttonTap", components: [
+        {kind: "onyx.Icon", src: "assets/my_icon.png"},
+        {content: "tap me"}
+    ]}
+
+A key difference between `onyx.IconButton` and `onyx.Button` is that the image associated with the IconButton's `src` property is assumed to be a 32x64-pixel strip, with the top half showing the button's normal state and the bottom half showing its state when active.  (By contrast, when you activate an `onyx.Button` that contains an image, the state change is reflected in the button's background, but not in the image itself.)
