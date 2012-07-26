@@ -65,3 +65,36 @@ One may also use `onyx.Icon` to create a button with both text and an image:
     ]}
 
 A key difference between `onyx.IconButton` and `onyx.Button` is that the image associated with the IconButton's `src` property is assumed to be a 32x64-pixel strip, with the top half showing the button's normal state and the bottom half showing its state when active.  (By contrast, when you activate an `onyx.Button` that contains an image, the state change is reflected in the button's background, but not in the image itself.)
+
+## onyx.RadioButton
+
+In Enyo 2, an `onyx.RadioButton` is an `enyo.Button` designed to go inside an `onyx.RadioGroup` (a horizontally-oriented group of buttons in which tapping on one button will release any previously-tapped button).
+
+Let's look at how a radio group works.
+
+    enyo.kind({
+        name: "RadioGroupSample",
+        kind: "Control",
+        components: [
+            {kind: "onyx.RadioGroup", onActivate: "radioActivated", components: [
+                {content: "Alpha"},
+                {content: "Beta"},
+                {content: "Gamma"}
+            ]},
+            {name: "statusText", content: "Please make a selection"}
+        ],
+        radioActivated: function(inSender, inEvent) {
+    	    if (inEvent.originator.getActive()) {
+	            this.$.statusText.setContent("Current selection: " +
+                inEvent.originator.getContent());
+            }
+        }
+    });
+
+![Radio Buttons 1](https://github.com/enyojs/enyo/wiki/assets/buttons-5.png)
+
+Notice that we have one handler method for the entire radio group.  When a button is tapped (or "activated"), we are able to identify the source of the event using `inEvent.originator`.  So if we tap the "Alpha" button, we see the following:
+
+![Radio Buttons 2](https://github.com/enyojs/enyo/wiki/assets/buttons-6.png)
+
+It's also worth noting that we didn't have to explicitly declare the kind for our radio buttons.  When a new control is added to an `onyx.RadioGroup`, its kind defaults to `onyx.RadioButton`.  (You can change this behavior by explicitly setting the `defaultKind` property of the radio group.)
