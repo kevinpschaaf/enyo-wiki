@@ -5,11 +5,14 @@ applications.  This document surveys the types of buttons that you are most like
 
 ## onyx.Button
 
-`onyx.Button` derives directly from `enyo.Button` and provides the same basic functionality, while adding a modicum of visual styling.
+`onyx.Button` derives directly from `enyo.Button` and provides the same basic functionality, along with a modicum of visual styling.
 
-    {kind: "onyx.Button", content: "tap me"}
+    {kind: "onyx.Toolbar", components: [
+        {kind: "enyo.Button", content: "enyo.Button"},
+        {kind: "onyx.Button", content: "onyx.Button"}
+    ]}
 
-![tap me button](https://github.com/enyojs/enyo/wiki/assets/buttons-1.png)
+![enyo.Button and onyx.Button](https://github.com/enyojs/enyo/wiki/assets/buttons-1.png)
 
 When an `onyx.Button` is tapped,
 it generates an `ontap` event; you may respond to the event by specifying a handler method, e.g.:
@@ -98,3 +101,29 @@ Notice that we have one handler method for the entire radio group.  When a butto
 ![Radio Buttons 2](https://github.com/enyojs/enyo/wiki/assets/buttons-6.png)
 
 It's also worth noting that we didn't have to explicitly declare the kind for our radio buttons.  When a new control is added to an `onyx.RadioGroup`, its kind defaults to `onyx.RadioButton`.  (You can change this behavior by explicitly setting the `defaultKind` property of the radio group.)
+
+## onyx.ToggleButton
+
+`onyx.ToggleButton` is a control that looks like a switch with labels for two states.  Each time a ToggleButton is tapped, it switches its value and fires an `onChange` event.
+
+    {kind: "onyx.ToggleButton", onContent: "foo", offContent: "bar", onChange: "buttonToggle"}
+
+    ...
+ 
+    buttonToggle: function(inSender, inEvent) {
+        this.log("Toggled to value " + inEvent.value);
+    }
+
+![Toggle Button](https://github.com/enyojs/enyo/wiki/assets/buttons-7.png)
+
+To access the value of the button, call `getValue`, e.g.:
+
+    queryToggleValue: function() {
+        return this.$.toggleButton.getValue();
+    }
+
+To customize the appearance of the toggle button's "on" state, set the background color as a CSS style:
+
+    {kind: "onyx.ToggleButton", style: "background-color: #35A8EE;"}
+
+![Toggle Button](https://github.com/enyojs/enyo/wiki/assets/buttons-8.png)
