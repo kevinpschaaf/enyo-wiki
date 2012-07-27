@@ -104,9 +104,9 @@ It's also worth noting that we didn't have to explicitly declare the kind for ou
 
 ## onyx.ToggleButton
 
-`onyx.ToggleButton` is a control that looks like a switch with labels for two states.  Each time a ToggleButton is tapped, it switches its value and fires an `onChange` event.
+`onyx.ToggleButton` is a control that looks like a switch with labels for two states.  Each time a toggle button is tapped, it switches its value and fires an `onChange` event.
 
-    {kind: "onyx.ToggleButton", onContent: "foo", offContent: "bar", onChange: "buttonToggle"}
+    {kind: "onyx.ToggleButton", onContent: "foo", offContent: "bar", onChange: "buttonToggle"},
 
     ...
  
@@ -116,14 +116,14 @@ It's also worth noting that we didn't have to explicitly declare the kind for ou
 
 ![Toggle Button](https://github.com/enyojs/enyo/wiki/assets/buttons-7.png)
 
-To access the value of the button, call `getValue`, e.g.:
-
-    queryToggleValue: function() {
-        return this.$.toggleButton.getValue();
-    }
-
-To customize the appearance of the toggle button's "on" state, set the background color as a CSS style:
+You may customize the appearance of the toggle button's "on" state by setting the background color as a CSS style:
 
     {kind: "onyx.ToggleButton", style: "background-color: #35A8EE;"}
 
 ![Toggle Button](https://github.com/enyojs/enyo/wiki/assets/buttons-8.png)
+
+Finally, you may retrieve the value of the button by calling the `getValue` method, which returns a Boolean, true or false:
+
+    queryToggleValue: function() {
+        return this.$.toggleButton.getValue();
+    }
