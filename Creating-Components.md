@@ -33,7 +33,7 @@ A component is an Enyo kind that can publish properties, expose events, and cont
 		},
 	  	timer: function() {
 	    	if (Math.random() < this.percentTrigger * 0.01) {
-				this.doTriggered(new Date().getTime());
+				this.doTriggered({time: new Date().getTime()});
 			}
 		},
 		baseIntervalChanged: function(inOldValue) {
@@ -51,7 +51,7 @@ Properties are placed in a `"published"` block and may include a default value. 
 
 ## Events
 
-Similarly, events are placed in an `"events"` block. To fire an event, we call the associated `"do"` method, another convenience provided by Enyo. For example, to fire the `onTriggered` event, we call `doTriggered`. Any arguments given will be passed along to the event handler. In this case, we are sending the current time. In a moment, we'll see how to handle this event.
+Similarly, events are placed in an `"events"` block. To fire an event, we call the associated `"do"` method, another convenience provided by Enyo. For example, to fire the `onTriggered` event, we call `doTriggered`. You can pass a single argument, an event object that will be passed along to the event handler. In this case, we are sending the current time as the `time` property. In a moment, we'll see how to handle this event.
 
 ## Components in Components: It's Turtles All the Way Down
 
@@ -63,8 +63,8 @@ First, though, we'll create another component kind, named `SimulatedMessage`:
 		components: [
 			{name: "timer", kind: "RandomizedTimer", percentTrigger: 10, onTriggered: "timerTriggered"}
 		],
-		timerTriggered: function(inSender, inTime) {
-			this.log("Simulated Service Message Occurred at " + inTime);
+		timerTriggered: function(inSender, inEvent) {
+			this.log("Simulated Service Message Occurred at " + inEvent.time);
 		}
 	});
 
@@ -72,7 +72,7 @@ As you can see, there's a `components` block and it contains a configuration obj
 
 ## Handling Events
 
-Having addressed the issue of component ownership, we can turn our attention back to the `onTriggered` event. Notice the string set for the `onTriggered` event in the `"timer"` configuration object. This is the name of the method in `SimulatedMessage` (the owner of the timer) that will be called to handle the event. Events are delegated to the generating component's owner by way of this named delegate string. This way we avoid the pain of having an add/remove listener mechanism. The first argument sent with every event is `"inSender"`, which is a reference to the component that generated the event. This argument facilitates code reuse since the same method can be used to handle multiple events distinguished by `inSender`. The other arguments vary by event. In this case we've sent the time at which the timer fired.
+Having addressed the issue of component ownership, we can turn our attention back to the `onTriggered` event. Notice the string set for the `onTriggered` event in the `"timer"` configuration object. This is the name of the method in `SimulatedMessage` (the owner of the timer) that will be called to handle the event. Events are delegated to the generating component's owner by way of this named delegate string. This way we avoid the pain of having an add/remove listener mechanism. The first argument sent with every event is `"inSender"`, which is a reference to the component that generated the event. This argument facilitates code reuse since the same method can be used to handle multiple events distinguished by `inSender`. The second argument is an 'inEvent' object that has properties corresponding with the event.
 
 ## Summary
 
