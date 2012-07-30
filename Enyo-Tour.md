@@ -38,6 +38,12 @@ The Onyx library provides a toolbox of beautifully-styled UI components for buil
 * **Group boxes**
 * **Progress bars**
 * **Sliders**
+* **Drawers**
+* **Menus**
+* **Pickers**
+* **Tooltips**
+* **Spinners**
+* **Popups**
 
 Take a look at [Onyx Sampler](http://enyojs.com/samples/onyxsampler) to see the Onyx widget set in action.
 
